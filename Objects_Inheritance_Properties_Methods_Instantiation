@@ -13,6 +13,7 @@
 			<h1> Create an Object </h1>
 				
 				<p> Objects record information in name-value pairs, called "properties" and "values" </p>
+				<p> Not to be confused with arrays, which only hold individual values within a single variable </p>
 				<p id="demo_1"></p>
 				
 					<script>
@@ -30,8 +31,10 @@
 			
 			<h1> Object Methods and Instantiation </h1>
 				
+				<h2> Instantiate with the "this" keyword. </h2>
 				<p> An object method is an object property containing a function definition </p>
-					
+				<p> We are also using the "this" keyword to Instantiate the object itself.</p>
+				
 				<p id="demo_2"></p>
 				
 					<script>
@@ -48,7 +51,8 @@
 					customer.fullName();
 					</script>
 					
-				<p> You can also Instantiate with the "new" keyword. </p>	
+				<h2> Instantiate with the "new" keyword. </h2>
+				<p> You can also Instantiate with the "new" keyword. Not recommended for JS use. </p>	
 				
 					<p id="demo_new"></p>
 
@@ -64,7 +68,7 @@
 					</script>
 
 					
-			<h1> Accesssing JaveScript Properties </h1>
+			<h1> Accesssing Object Properties </h1>
 				
 				<p id="demo_3"></p>
 				
@@ -197,10 +201,10 @@
 					</script>
 
 				
-			<h1> Adding a Method to an Object </h1>
+			<h1> Adding a Method to an Constructed Object </h1>
 			
 				<p id="demo_10"></p>
-
+				
 				<script>
 
 					// Constructor function for Character objects
@@ -225,17 +229,46 @@
 					"My Wizard is " + myWizard.name(); 
 				</script>
 			
+			<h1> Adding a Property to an Constructed Object </h1>
+			
+				<p id="demo_11"></p>
+					
+				<p> Note: You can not add and delete properties to Constructed Objects from outside the initial Object Constructor code. </p>
+				
+				<script>
+
+					// Constructor function for Heroes objects.
+						function Heroes(first, last, age, eye) {
+							this.firstName = first;
+							this.lastName = last;
+							this.age = age;
+							this.eyeColor = eye;
+						//Add "race" property below.
+							this.race = "Elfish";
+						}
+
+						// Create 2 Heroes objects
+						var myFighter = new Heroes("Christopher", "Frost Bane", 50, "blue");
+						var myMage = new Heroes("Lucas", "Swallow Tail", 35, "green");
+
+						// Display first Hero and race
+					document.getElementById("demo_11").innerHTML =
+					myFighter.firstName + " is " + myFighter.race + ". " + myMage.firstName + " is " + myMage.race; 
+					
+				</script>
+			
+			
 			<h1> Prototype Inheritance </h1>
 				
 				<p> All JavaScript objects inherit properties and methods from a prototype.</p>
 				<p> Date objects inherit from Date.prototype. Array objects inherit from Array.prototype. Person objects inherit from Person.prototype. </p>
 				<p> The Object.prototype is on the top of the prototype inheritance chain:</p>
 				<p> Date objects, Array objects, and Person objects inherit from Object.prototype. </p>
-				<p> Only modify your own prototypes, not standard JS objects. </p>
+				<p> Only modify your <i> own </i> prototypes, not standard JS objects. </p>
 			
-			<h1> Add Properties and Methods to a Prototype or Object Constructor </h1>
+			<h2> Add Properties and Methods to a Prototype or Object Constructor </h2>
 					
-				<p id="demo_11"></p>
+				<p id="demo_12"></p>
 
 					<script>
 						function Character(first, last, age, eye) {
@@ -249,16 +282,16 @@
 						};
 
 						var myWizard = new Character("Daven", "Frostfall", 50, "blue");
-						document.getElementById("demo_11").innerHTML =
+						document.getElementById("demo_12").innerHTML =
 						"My Wizard is " + myWizard.name(); 
 					</script>
 
-			<h1> JS Getter </h1>
+			<h2> JS Getter </h2>
 			
 				<p>Getters and setters allow you to get and set properties via methods.</p>
 				<p>This example uses a lang property to get the value of the language property.</p>
 				
-				<p id="demo_12"></p>
+				<p id="demo_13"></p>
 
 					<script>
 					// Create an object:
@@ -271,12 +304,12 @@
 						}
 					};
 					// Display data from the object using a getter:
-					document.getElementById("demo_12").innerHTML = "My Wizard speaks " + Character.lang + ".";
+					document.getElementById("demo_13").innerHTML = "My Wizard speaks " + Character.lang + ".";
 					</script>
 					
-			<h1> JS Setter </h1>
+			<h2> JS Setter </h2>
 			
-				<p id="demo_13"></p>
+				<p id="demo_14"></p>
 
 					<script>
 						// Create an object:
@@ -291,7 +324,7 @@
 						// Set a property using set:
 						Character.lang = "Elfish";
 						// Display data from the object:
-						document.getElementById("demo_13").innerHTML = "My Wizard speaks " + Character.language + ".";
+						document.getElementById("demo_14").innerHTML = "My Wizard speaks " + Character.language + ".";
 					</script>
 
 			
