@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<meta charset="utf-8">
+			<title>JSON_Parse_Stringify</title>
+			
+		</head>
+		<body>
+			
+<!-- Important. Do your OWN examples. Don't just copy and paste them from the tutorial. -->	
+
+<!-- Link to JSON Parse Tutorial - https://www.w3schools.com/Js/js_json.asp -->
+			
+			
+			
+			<h1>JSON Formatting</h1>
+			
+			<p> JSON Objects are formated as follows: "{"name":"value"}"</p>
+			<p> Or for larger JSON Objects: "{"name":"value", "name":"value", etc.}"</p>
+			<p> JSON Arrays are formated as follows: "[green, blue, purple, etc.]"</p>
+			<p> JSON Values include numbers, strings, JSON objects, arrays, booleans and null values </p>
+			<p> However, they <b> don't </b> include functions, dates and undefined values </p>
+			
+			
+			<h2>Create an Object from a JSON String via JSON.parse() </h2>
+
+				<p id="demo_1"></p>
+
+				<script>
+				var text = '{"Characters":[' +
+				'{"firstName":"Ironra","lastName":"Blade" },' +
+				'{"firstName":"Sylvanna","lastName":"Quill" },' +
+				'{"firstName":"Dagon","lastName":"Kaylin" }]}';
+
+				roster = JSON.parse(text);
+				document.getElementById("demo_1").innerHTML =
+				roster.Characters[2].firstName + " " + roster.Characters[2].lastName;
+				</script>
+			
+			<h2>Create an Array from a JSON String via JSON.parse()</h2>
+
+				<p id="demo_2"></p>
+
+				<script>
+				var text = '{"favColors":["green", "blue", "purple"]}';
+
+				favorites = JSON.parse(text);
+				document.getElementById("demo_2").innerHTML =
+				"My favorite colors are " + favorites.favColors[0] + ", " + favorites.favColors[1] + ", " + favorites.favColors[2];
+				</script>
+				
+			<h2> Create a date object from a JSON String via JSON.parse()</h2>
+				
+				<p id="demo_10"></p>
+
+				<script>
+				var text = '{"name":"Sally Shine", "birth":"1989-8-14", "city":"Rochester"}';
+				var contact = JSON.parse(text);
+				contact.birth = new Date(contact.birth);
+				document.getElementById("demo_10").innerHTML = contact.name + ", " + contact.birth; 
+				</script>
+							
+			
+			<h2> Create a function from a JSON String via JSON.parse()</h2>
+				<p> Note: It's not recommended to transmit functions by JSON, because they loose thier scope. </p>
+				<p> You will need to use eval() to switch the text forms back to actual functions </p>
+			
+				<p id="demo_11"></p>
+
+				<script>
+				var text = '{"name":"Jerome Valesca", "age":"function() {return 30;}", "city":"Gotham"}';
+				var villian = JSON.parse(text);
+				villian.age = eval("(" + villian.age + ")");
+				document.getElementById("demo_11").innerHTML = villian.name + ", " + villian.age(); 
+				</script>
+			
+			
+			<h1> Store, send and receive information via JSON and AJAX Requests
+			
+			<h2> Saving and loading data from local storage</h2>
+				<p id="demo_3"></p>
+
+				<script>
+				var myHero, myJSON, text, obj;
+				
+				//Saving data:
+				myHero = { codeName: "Batman", age: 27, city: "Gotham" };
+				myJSON = JSON.stringify(myHero);
+				localStorage.setItem("testJSON", myJSON);
+				
+				//Loading data:
+				text = localStorage.getItem("testJSON");
+				obj = JSON.parse(text);
+				document.getElementById("demo_3").innerHTML = obj.codeName;
+				</script>
+			
+			<h2> Examples of JSON.stringify() to prepare data for transit </h2>
+			
+				<h3>Stringify a JS Object.</h3>
+
+					<p id="demo_6"></p>
+
+					<script>
+					var Hero = { name: "Clark Kent", age: 30, city: "Metropolis" };
+					var myJSON = JSON.stringify(Hero);
+					document.getElementById("demo_6").innerHTML = myJSON;
+					</script>
+			
+				<h3>Stringify a JS Array.</h3>
+
+					<p id="demo_7"></p>
+
+					<script>
+
+					var Roster = [ "Clark Kent", "Bruce Wayne", "Curt Connors", "Dean Smith" ];
+					var myJSON = JSON.stringify(Roster);
+					document.getElementById("demo_7").innerHTML = myJSON;
+
+					</script>
+					
+				<h3>Stringify a date object into a string.</h3>
+
+					<p id="demo_8"></p>
+
+					<script>
+					
+					var Wanted = { name: "Vincent Price", today: new Date(), city: "Chicago" };
+					var myJSON = JSON.stringify(Wanted);
+					document.getElementById("demo_8").innerHTML = myJSON;
+					
+					</script>
+					
+				<h3>Stringify a function into a string.</h3>
+					<p> Turn the functions into strings so they can stay in the JSON object.</p>
+					<p> Note: Try not to use functions in JSON because they loose their scope </p>
+					<p> You will have to use eval() to switch them back into functions</p>
+				
+					<p id="demo_9"></p>
+
+					<script>
+					var src = { name: "Kyle Winters", age: function () {return 45;}, city: "Gotham" };
+					src.age = src.age.toString();
+					var myJSON = JSON.stringify(src);
+					document.getElementById("demo_9").innerHTML = myJSON;
+					</script>
+			
+		</body>	
+	</html>
