@@ -62,7 +62,7 @@
 							
 			<h1>Using JSON to receive data</h1>
 			
-			<h2> * (customize) JSON from the Server (AJAX Request) </h2>
+			<h2> AJAX Request via JSON </h2>
 				
 				<p>Use the AJAX Request (aka XMLHttpRequest) to get the content of a file.</p>
 				<p>The content must be in JSON format, so it can easily be converted into a JavaScript object.</p>
@@ -75,7 +75,7 @@
 				xmlhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
 					var myObj = JSON.parse(this.responseText);
-						document.getElementById("demo_1").innerHTML = myObj.name;
+						document.getElementById("demo_1").innerHTML = "My Character's name is " + myObj.name;
 					}
 				};
 				xmlhttp.open("GET", "json_ajax_demo.txt", true);
@@ -98,11 +98,11 @@
 				  if (window.XMLHttpRequest) {
 					// code for modern browsers
 					xhttp = new XMLHttpRequest();
-					} else {
+						} else {
 					// code for IE6, IE5
 					xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-				  }
-				  xhttp.onreadystatechange = function() {
+				  		}
+				 	xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
 					  document.getElementById("demo_2").innerHTML = this.responseText;
 					}
