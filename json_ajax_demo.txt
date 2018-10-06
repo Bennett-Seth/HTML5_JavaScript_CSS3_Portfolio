@@ -1,9 +1,0 @@
-{
-    "name":"Connan the Barbarian",
-    "age":42,
-    "pets":[
-        { "animal":"Tiger", "name":"Harry" },
-        { "animal":"Hell Hound", "name":"Frank" },
-        { "animal":"Parot", "name":"Echo" }
-    ]
-}
