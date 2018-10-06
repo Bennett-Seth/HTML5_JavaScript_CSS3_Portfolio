@@ -94,7 +94,8 @@
 
 				<script>
 				function loadDoc() {
-				  var xhttp;
+					var xhttp;
+					var myObj;
 				  if (window.XMLHttpRequest) {
 					// code for modern browsers
 					xhttp = new XMLHttpRequest();
@@ -104,7 +105,8 @@
 				  		}
 				 	xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
-					  document.getElementById("demo_2").innerHTML = this.responseText;
+					  	//myObj = JSON.parse(this.responseText);
+						document.getElementById("demo_2").innerHTML = this.responseText;
 					}
 				  };
 				  xhttp.open("GET", "riddle_answer.txt", true);
