@@ -102,6 +102,28 @@
 				<!-- <p>Take a look at <a href="json_ajax_demo.txt" target="_blank">json_ajax_demo.txt</a></p>
 				-->
 				
+			<h2> AJAX Request via JSON using the "responseXML" command. </h2>
+
+				<p id="demo"></p>
+
+				<script>
+				var xhttp, xmlDoc, txt, x, i;
+				xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				  xmlDoc = this.responseXML;
+				  //txt = "";
+				 // x = xmlDoc.getElementsByTagName("ARTIST");
+				  //for (i = 0; i < x.length; i++) {
+				  //  txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+				  }
+				  document.getElementById("demo").innerHTML = xmlDoc;
+				  }
+				};
+				xhttp.open("GET", "XML_demo.xml", true);
+				xhttp.send();
+				</script>
+			
 			<h2> To Include Compatability with older browsers such as IE5 and IE6 </h2>
 			
 				<p> Older versions use the ActiveX object instead of the XMLHttpRequest object. </p>
@@ -132,7 +154,7 @@
 				}
 				</script>
 			
-			<h1> Callback Functions </h1>
+			<h1> *Callback Functions </h1>
 
 				<h2>When you pass a parameter as a function, to another function. </h2>	
 				<p> This is a great way to divide multiple AJAX tasks, such as: </p>
@@ -143,7 +165,7 @@
 				</div>
 		
 				<button type="button"
-					onclick="loadDoc_3('json_ajax_demo.txt', myFunction)">Change Content
+					onclick="loadDoc_3('json_ajax_demo.txt', myFunction)"> Display Content
 					</button>
 
 				<script>
