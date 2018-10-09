@@ -68,9 +68,12 @@
 				<p>The content must be in JSON format, so it can easily be converted into a JavaScript object.</p>
 
 				<p id="demo_1"></p>
+			
+				<button type="button" onclick="loadDoc_1()">Why did Batman take Wonder Woman to the used car dealership?</button>
 
 				<script>
 
+				function loadDoc_1(){
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
@@ -80,6 +83,7 @@
 				};
 				xmlhttp.open("GET", "json_ajax_demo.txt", true);
 				xmlhttp.send();
+				}
 
 				</script>
 
