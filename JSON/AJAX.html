@@ -82,11 +82,12 @@
 				
 				<h2> *AJAX Request via JSON using the "responseXML" command. </h2>
 
-					<button type="button" onclick="loadDoc_1()">Here's my XML Note</button>
+					<button type="button" onclick="loadDoc_5()">Here's my XML Note</button>
 					<p id="demo_5"></p>
 
 					<script>
 					var xhttp, xmlDoc, txt, x, i;
+					function loadDoc_5() {
 					xhttp = new XMLHttpRequest();
 					xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
@@ -102,6 +103,7 @@
 					};
 					xhttp.open("GET", "XML_demo.xml", true);
 					xhttp.send();
+					}
 					</script>
 			
 				<h2> To Include Compatability with older browsers such as IE5 and IE6 </h2>
