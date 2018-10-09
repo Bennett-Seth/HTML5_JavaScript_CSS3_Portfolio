@@ -80,7 +80,7 @@
 					<!-- <p>Take a look at <a href="json_ajax_demo.txt" target="_blank">json_ajax_demo.txt</a></p>
 					-->
 				
-				<h2> *AJAX Request via JSON using the "responseXML" command. </h2>
+				<h2>*Q* AJAX Request via JSON using the "responseXML" command. </h2>
 
 					<button type="button" onclick="loadDoc_5()">Here's my XML Note</button>
 					<p id="demo_5"></p>
@@ -136,7 +136,7 @@
 					}
 					</script>
 			
-				<h1> *Callback Functions </h1>
+				<h1> Callback Functions </h1>
 
 					<h2>When you pass a parameter as a function, to another function. </h2>	
 					<p> This is a great way to divide multiple AJAX tasks, such as: </p>
@@ -168,7 +168,7 @@
 					}
 					</script>
 
-			<h1>*Study* Using JSON to send data via a Get Method</h1>
+			<h1>*Q* Using JSON to send data via a Get Method</h1>
 			
 				<p>Step 1: Convert a JavaScript object into a JSON string </p>
 				<p>Step 2: Send it to the server.</p>
@@ -182,7 +182,7 @@
 				  var xhttp = new XMLHttpRequest();
 				  xhttp.onreadystatechange = function() {
 				    if (this.readyState == 4 && this.status == 200) {
-				      document.getElementById("demo").innerHTML = this.responseText;
+				      document.getElementById("demo_4").innerHTML = this.responseText;
 				    }
 				  };
 				  xhttp.open("GET", "json_ajax_demo.txt?fname=Henry&lname=Ford", true);
