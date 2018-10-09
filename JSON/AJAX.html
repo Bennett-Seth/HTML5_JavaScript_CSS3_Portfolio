@@ -72,15 +72,17 @@
 							
 			<h1>Using JSON to receive data</h1>
 			
-			<h2> AJAX Request via JSON </h2>
+			<h2> AJAX Request via JSON using the "responseText" command. </h2>
 				
 				<p>Use the AJAX Request (aka XMLHttpRequest) to get the content of a file.</p>
 				<p>The content must be in JSON format, so it can easily be converted into a JavaScript object.</p>
+				<p>It also uses the "responseText" command, which displays the resulting data as a JS string. </p>
 
-				<p id="demo_1"></p>
 			
 				<button type="button" onclick="loadDoc_1()">Who is my character?</button>
 
+				<p id="demo_1"></p>
+			
 				<script>
 
 				function loadDoc_1(){
@@ -100,10 +102,10 @@
 				<!-- <p>Take a look at <a href="json_ajax_demo.txt" target="_blank">json_ajax_demo.txt</a></p>
 				-->
 				
-			<h2> * (customize) Compatability with older browsers (IE5 and IE6) </h2>
+			<h2> To Include Compatability with older browsers such as IE5 and IE6 </h2>
 			
 				<p> Older versions use the ActiveX object instead of the XMLHttpRequest object. </p>
-
+			
 				<button type="button" onclick="loadDoc_2()">Why did Batman take Wonder Woman to the used car dealership?</button>
 
 				<p id="demo_2"></p>
@@ -135,10 +137,10 @@
 				<h2>When you pass a parameter as a function, to another function. </h2>	
 				<p> This is a great way to divide multiple AJAX tasks, such as: </p>
 				<p> 1. Calling up the loadDoc fuction. </p>
-				<p> 2. Displaying the loaded information. </p>
+				<p> 2. Displaying the loaded information. </p>	
 			
-			<div id="demo_3">	
-			</div>
+				<div id="demo_3">	
+				</div>
 		
 				<button type="button"
 					onclick="loadDoc_3('json_ajax_demo.txt', myFunction)">Change Content
@@ -161,6 +163,8 @@
 				  xhttp.responseText;
 				}
 				</script>
+			
+			
 			
 		</body>	
 	</html>
