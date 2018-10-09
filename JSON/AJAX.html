@@ -13,41 +13,159 @@
 			
 			<h1> Definitions for Server Responses </h1>
 			
-			<table style="width:50%" border="1pt">
-				<tr>
-					<th> Property </th>
-					<th> Description </th>
-				</tr>
-				<tr>
-					<td> onreadystatechange </td>
-					<td> Calls the function when the property's readyState changes </td>
-				</tr>
-				<tr>
-					<td> readyState </td>
-					<td> Holds the XMLHttpRequest until: 
-						<br> 0: request not started
-						<br> 1: make connection with the server
-						<br> 2: got the request
-						<br> 3: processing the request
-						<br> 4: request finished and response is ready
-					</td>
-				</tr>
-				<tr>
-					<td> status </td>
-					<td> 
-						<br> 200: "OK"
-						<br> 403: "Forbidden"
-						<br> 404: "Page not found"
-						<br> <a href="https://www.w3schools.com/tags/ref_httpmessages.asp"> More here </a>
-					 </td>
-				</tr>
-				<tr>
-					<td> statusText </td>
-					<td> Returns the status-text (example: "Forbidden") </td>
-				</tr>
-			</table>
+				<table style="width:50%" border="1pt">
+					<tr>
+						<th> Property </th>
+						<th> Description </th>
+					</tr>
+					<tr>
+						<td> onreadystatechange </td>
+						<td> Calls the function when the property's readyState changes </td>
+					</tr>
+					<tr>
+						<td> readyState </td>
+						<td> Holds the XMLHttpRequest until: 
+							<br> 0: request not started
+							<br> 1: make connection with the server
+							<br> 2: got the request
+							<br> 3: processing the request
+							<br> 4: request finished and response is ready
+						</td>
+					</tr>
+					<tr>
+						<td> status </td>
+						<td> 
+							<br> 200: "OK"
+							<br> 403: "Forbidden"
+							<br> 404: "Page not found"
+							<br> <a href="https://www.w3schools.com/tags/ref_httpmessages.asp"> More here </a>
+						 </td>
+					</tr>
+					<tr>
+						<td> statusText </td>
+						<td> Returns the status-text (example: "Forbidden") </td>
+					</tr>
+				</table>
 			
+							
+			<h1>Using JSON to receive data</h1>
 			
+				<h2> AJAX Request via JSON using the "responseText" command. </h2>
+				
+					<p>Use the AJAX Request (aka XMLHttpRequest) to get the content of a file.</p>
+					<p>The content must be in JSON format, so it can easily be converted into a JavaScript object.</p>
+					<p>It also uses the "responseText" command, which displays the resulting data as a JS string. </p>
+
+
+					<button type="button" onclick="loadDoc_1()">Who is my character?</button>
+
+					<p id="demo_1"></p>
+
+					<script>
+
+					function loadDoc_1(){
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+						var myObj = JSON.parse(this.responseText);
+							document.getElementById("demo_1").innerHTML = "My Character's name is " + myObj.name;
+						}
+						};
+					xmlhttp.open("GET", "json_ajax_demo.txt", true);
+					xmlhttp.send();
+					}
+
+					</script>
+
+					<!-- <p>Take a look at <a href="json_ajax_demo.txt" target="_blank">json_ajax_demo.txt</a></p>
+					-->
+				
+				<h2> *AJAX Request via JSON using the "responseXML" command. </h2>
+
+					<button type="button" onclick="loadDoc_1()">Here's my XML Note</button>
+					<p id="demo_5"></p>
+
+					<script>
+					var xhttp, xmlDoc, txt, x, i;
+					xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  	result = this.responseXML;
+						note = result.getElementsByTagName("Body");
+					  //txt = "";
+					 // x = xmlDoc.getElementsByTagName("ARTIST");
+					  //for (i = 0; i < x.length; i++) {
+					  //  txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+					  //}
+					  document.getElementById("demo_5").innerHTML = note;
+					  }
+					};
+					xhttp.open("GET", "XML_demo.xml", true);
+					xhttp.send();
+					</script>
+			
+				<h2> To Include Compatability with older browsers such as IE5 and IE6 </h2>
+			
+					<p> Older versions use the ActiveX object instead of the XMLHttpRequest object. </p>
+
+					<button type="button" onclick="loadDoc_2()">Why did Batman take Wonder Woman to the used car dealership?</button>
+
+					<p id="demo_2"></p>
+
+					<script>
+					function loadDoc_2() {
+						var xhttp;
+						var myObj;
+					  if (window.XMLHttpRequest) {
+						// code for modern browsers
+						xhttp = new XMLHttpRequest();
+							} else {
+						// code for IE6, IE5
+						xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+							}
+						xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							//myObj = JSON.parse(this.responseText);
+							document.getElementById("demo_2").innerHTML = this.responseText;
+							}
+						};
+					  xhttp.open("GET", "riddle_answer.txt", true);
+					  xhttp.send();
+					}
+					</script>
+			
+				<h1> *Callback Functions </h1>
+
+					<h2>When you pass a parameter as a function, to another function. </h2>	
+					<p> This is a great way to divide multiple AJAX tasks, such as: </p>
+					<p> 1. Calling up the loadDoc fuction. </p>
+					<p> 2. Displaying the loaded information. </p>	
+
+					<div id="demo_3">	
+					</div>
+
+					<button type="button"
+						onclick="loadDoc_3('json_ajax_demo.txt', myFunction)"> Display Content
+						</button>
+
+					<script>
+					function loadDoc_3(url, cFunction) {
+					  var xhttp;
+					  xhttp=new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      cFunction(this);
+					    }
+					  };
+					  xhttp.open("GET", url, true);
+					  xhttp.send();
+					}
+					function myFunction(xhttp) {
+					  document.getElementById("demo_3").innerHTML =
+					  xhttp.responseText;
+					}
+					</script>
+
 			<h1>*Study* Using JSON to send data via a Get Method</h1>
 			
 				<p>Step 1: Convert a JavaScript object into a JSON string </p>
@@ -69,124 +187,6 @@
 				  xhttp.send();
 				}
 				</script>
-							
-			<h1>Using JSON to receive data</h1>
-			
-			<h2> AJAX Request via JSON using the "responseText" command. </h2>
-				
-				<p>Use the AJAX Request (aka XMLHttpRequest) to get the content of a file.</p>
-				<p>The content must be in JSON format, so it can easily be converted into a JavaScript object.</p>
-				<p>It also uses the "responseText" command, which displays the resulting data as a JS string. </p>
-
-			
-				<button type="button" onclick="loadDoc_1()">Who is my character?</button>
-
-				<p id="demo_1"></p>
-			
-				<script>
-
-				function loadDoc_1(){
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-					var myObj = JSON.parse(this.responseText);
-						document.getElementById("demo_1").innerHTML = "My Character's name is " + myObj.name;
-					}
-					};
-				xmlhttp.open("GET", "json_ajax_demo.txt", true);
-				xmlhttp.send();
-				}
-
-				</script>
-
-				<!-- <p>Take a look at <a href="json_ajax_demo.txt" target="_blank">json_ajax_demo.txt</a></p>
-				-->
-				
-			<h2> *AJAX Request via JSON using the "responseXML" command. </h2>
-
-				<p id="demo"></p>
-
-				<script>
-				var xhttp, xmlDoc, txt, x, i;
-				xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-				  xmlDoc = this.responseXML;
-				  //txt = "";
-				 // x = xmlDoc.getElementsByTagName("ARTIST");
-				  //for (i = 0; i < x.length; i++) {
-				  //  txt = txt + x[i].childNodes[0].nodeValue + "<br>";
-				  //}
-				  document.getElementById("demo").innerHTML = xmlDoc;
-				  }
-				};
-				xhttp.open("GET", "XML_demo.xml", true);
-				xhttp.send();
-				</script>
-			
-			<h2> To Include Compatability with older browsers such as IE5 and IE6 </h2>
-			
-				<p> Older versions use the ActiveX object instead of the XMLHttpRequest object. </p>
-			
-				<button type="button" onclick="loadDoc_2()">Why did Batman take Wonder Woman to the used car dealership?</button>
-
-				<p id="demo_2"></p>
-			
-				<script>
-				function loadDoc_2() {
-					var xhttp;
-					var myObj;
-				  if (window.XMLHttpRequest) {
-					// code for modern browsers
-					xhttp = new XMLHttpRequest();
-						} else {
-					// code for IE6, IE5
-					xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-				  		}
-				 	xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-					  	//myObj = JSON.parse(this.responseText);
-						document.getElementById("demo_2").innerHTML = this.responseText;
-						}
-				  	};
-				  xhttp.open("GET", "riddle_answer.txt", true);
-				  xhttp.send();
-				}
-				</script>
-			
-			<h1> *Callback Functions </h1>
-
-				<h2>When you pass a parameter as a function, to another function. </h2>	
-				<p> This is a great way to divide multiple AJAX tasks, such as: </p>
-				<p> 1. Calling up the loadDoc fuction. </p>
-				<p> 2. Displaying the loaded information. </p>	
-			
-				<div id="demo_3">	
-				</div>
-		
-				<button type="button"
-					onclick="loadDoc_3('json_ajax_demo.txt', myFunction)"> Display Content
-					</button>
-
-				<script>
-				function loadDoc_3(url, cFunction) {
-				  var xhttp;
-				  xhttp=new XMLHttpRequest();
-				  xhttp.onreadystatechange = function() {
-				    if (this.readyState == 4 && this.status == 200) {
-				      cFunction(this);
-				    }
-				  };
-				  xhttp.open("GET", url, true);
-				  xhttp.send();
-				}
-				function myFunction(xhttp) {
-				  document.getElementById("demo_3").innerHTML =
-				  xhttp.responseText;
-				}
-				</script>
-			
-			
 			
 		</body>	
 	</html>
