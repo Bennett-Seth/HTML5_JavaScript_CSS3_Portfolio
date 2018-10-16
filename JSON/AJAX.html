@@ -82,7 +82,7 @@
 				
 				<h2>The XMLHttpRequest Object</h2>
 
-					<button type="button" onclick="loadDoc_2()">Get my CD collection</button>
+					<button type="button" onclick="loadDoc_2()"> Hi, Get my CD collection</button>
 					<br><br>
 					<p id="demo_2"></p>
 
@@ -100,16 +100,16 @@
 						function myFunction(xml) {
 						  var i;
 						  var xmlDoc = xml.responseXML;
-						  var table="<tr><th>Artist</th><th>Title</th></tr>";
-						  var x = xmlDoc.getElementsByTagName("CD");
-						  for (i = 0; i <x.length; i++) { 
-						    table += "<tr><td>" +
-						    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
-						    "</td><td>" +
-						    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
-						    "</td></tr>";
+						  //var table="<tr><th>Artist</th><th>Title</th></tr>";
+						  //var x = xmlDoc.getElementsByTagName("CD");
+						 // for (i = 0; i <x.length; i++) { 
+						  //  table += "<tr><td>" +
+						  //  x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+						 //   "</td><td>" +
+						 //   x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+						 //   "</td></tr>";
 						  }
-						  document.getElementById("demo_2").innerHTML = table;
+						  document.getElementById("demo_2").innerHTML = xmlDoc;
 						}
 					</script>
 			
