@@ -82,7 +82,7 @@
 				
 				<h2>The XMLHttpRequest Object</h2>
 
-					<button type="button" onclick="loadDoc_2()"> Get my CD collection</button>
+					<button type="button" onclick="loadDoc_2()"> 1) Get my CD collection</button>
 					<br><br>
 					<p id="demo_2"></p>
 
@@ -91,7 +91,9 @@
 						  var xhttp = new XMLHttpRequest();
 						  xhttp.onreadystatechange = function() {
 						    if (this.readyState == 4 && this.status == 200) {
-						      document.getElementById("demo_2").innerHTML = this.responseXML;
+						      //document.getElementById("demo_2").innerHTML = this.responseXML;
+						    	document.getElementById("demo_2").innerHTML =
+							xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
 						    }
 						  };
 						  xhttp.open("GET", "cd_catalog.xml", true);
