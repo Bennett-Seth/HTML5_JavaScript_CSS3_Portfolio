@@ -117,12 +117,12 @@
 			
 					<p> Older versions use the ActiveX object instead of the XMLHttpRequest object. </p>
 
-					<button type="button" onclick="loadDoc_2()">Why did Batman take Wonder Woman to the used car dealership?</button>
+					<button type="button" onclick="loadDoc_3()">Why did Batman take Wonder Woman to the used car dealership?</button>
 
-					<p id="demo_2"></p>
+					<p id="demo_3"></p>
 
 					<script>
-					function loadDoc_2() {
+					function loadDoc_3() {
 						var xhttp;
 						var myObj;
 					  if (window.XMLHttpRequest) {
@@ -135,7 +135,7 @@
 						xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
 							//myObj = JSON.parse(this.responseText);
-							document.getElementById("demo_2").innerHTML = this.responseText;
+							document.getElementById("demo_3").innerHTML = this.responseText;
 							}
 						};
 					  xhttp.open("GET", "riddle_answer.txt", true);
@@ -150,15 +150,15 @@
 					<p> 1. Calling up the loadDoc fuction. </p>
 					<p> 2. Displaying the loaded information. </p>	
 
-					<div id="demo_3">	
+					<div id="demo_4">	
 					</div>
 
 					<button type="button"
-						onclick="loadDoc_3('json_ajax_demo.txt', myFunction)"> Display Content
+						onclick="loadDoc_4('json_ajax_demo.txt', myFunction)"> Display Content
 						</button>
 
 					<script>
-					function loadDoc_3(url, cFunction) {
+					function loadDoc_4(url, cFunction) {
 					  var xhttp;
 					  xhttp=new XMLHttpRequest();
 					  xhttp.onreadystatechange = function() {
@@ -170,7 +170,7 @@
 					  xhttp.send();
 					}
 					function myFunction(xhttp) {
-					  document.getElementById("demo_3").innerHTML =
+					  document.getElementById("demo_4").innerHTML =
 					  xhttp.responseText;
 					}
 					</script>
