@@ -96,6 +96,7 @@
 						  };
 						  xhttp.open("GET", "cd_catalog.xml", true);
 						  xhttp.send();
+						
 						}
 						function myFunction(xml) {
 						  var i;
@@ -108,8 +109,9 @@
 						 //   "</td><td>" +
 						 //   x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
 						 //   "</td></tr>";
+						 document.getElementById("demo_2").innerHTML = xmlDoc;
 						  }
-						  document.getElementById("demo_2").innerHTML = xmlDoc;
+						 
 						}
 					</script>
 			
