@@ -1,0 +1,194 @@
+
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<meta charset="utf-8">
+			<title>Local Storage API</title>
+			
+		</head>
+		<body>
+
+			<h1> Team Questions. 1) h1 formating for p answers. 2) Store Associated Arrays? </h1>
+			<h1> *Local Storage </h1>
+				
+				<p> Stores data in the browser with no expiration date. </p>
+				<p> Information will not be lost when the tab is closed. </p>
+				<p> Local Storage is an object, which mean info must be stored in name-value pairs. </p>
+			<hr>	
+				<h2> Save and Load an Object to Local Storage </p>
+					
+					<p> Who is the creepiest hero ever? </p>
+					<button onclick="saveObject()"> Save and Load the Object </button>
+					<p id="demo_1"> </p>
+					
+					<script>
+					
+					function saveObject() {
+						if (typeof(Storage) !== "undefined") {
+
+						//Saving Object:
+						myHero = { codeName: "Batman", age: 27, city: "Gotham" };
+						JSONHero = JSON.stringify(myHero);
+						localStorage.setItem("HeroJSON", JSONHero);
+						
+						//Loading Object:
+						text = localStorage.getItem("HeroJSON");
+						myHero = JSON.parse(text);
+						document.getElementById("demo_1").innerHTML = myHero.codeName;
+						} else {
+								alert("Sorry, there's no web storage support on this browser!");
+							}
+					}
+					
+					</script>
+		
+			<hr>
+				<h2> Save an Array to Local Storage </p>
+					
+					<p> How many baddies has Bond taken out? </p>
+					<button onclick="saveArray()"> Save and Load the Array </button>
+					<p id="demo_2" style="font-size:12px"> </p>
+
+					<script>
+				
+					function saveArray() {
+						if (typeof(Storage) !== "undefined") {
+						
+						//Saving Object:
+						mySpy = { codeName: "007", age: 24, city: "London", killRoster: [ "Gold Finger", "Specter", "Dr. No" ] };
+						JSONSpy = JSON.stringify(mySpy);
+						localStorage.setItem("spyJSON", JSONSpy);
+						
+						//Loading Object:
+						text = localStorage.getItem("spyJSON");
+						mySpy = JSON.parse(text);
+						document.getElementById("demo_2").innerHTML = mySpy.killRoster[0] + ", " 
+						+ mySpy.killRoster[1] + ", " + mySpy.killRoster[2];
+						} else {
+							alert("Sorry, there's no web storage support on this browser!");
+						}
+					}
+					</script>
+		
+		<hr>
+				<h2> Save and Load a String </p>
+					
+					<p> How awesome is Bond? </p>
+					<button onclick="saveBondString()"> Save and Load the String </button>
+					<p id="demo_4"> </p>
+
+					<script>
+				
+					function saveBondString() {
+						if (typeof(Storage) !== "undefined") {
+					//Saving Object:
+					bondMotto = "Very awesome.";
+					mottoJSON = JSON.stringify(bondMotto);
+					localStorage.setItem("bondAnswer", mottoJSON);
+					
+					//Loading Object:
+					text = localStorage.getItem("bondAnswer");
+					riddleAnswer = JSON.parse(text);
+					document.getElementById("demo_4").innerHTML = riddleAnswer;
+					
+					}else {
+							alert("Sorry, there's no web storage support on this browser!");
+						}
+					}
+					</script>
+		<hr>
+				<h2> Delete a Local Storage Object </p>
+				
+					<p> Who is the most powerful DC Superhero? </p>
+					<button onclick="saveSuperman()"> Save and Load the Original Information </button>
+					<p id="demo_5"> </p>
+					
+					<script>
+					
+					function saveSuperman() {
+						if (typeof(Storage) !== "undefined") {
+
+						//Saving Object:
+						fileSuperman = { codeName: "Superman", age: 32, city: "Metropolis" };
+						JSONSuperman = JSON.stringify(fileSuperman);
+						localStorage.setItem("HeroJSON", JSONSuperman);
+						
+						//Loading Object:
+						text = localStorage.getItem("HeroJSON");
+						Superman = JSON.parse(text);
+						document.getElementById("demo_5").innerHTML = Superman.codeName;
+						} else {
+								alert("Sorry, there's no web storage support on this browser!");
+							}
+					}
+					
+					</script>
+					
+					<button onclick="DeleteSuperman()"> Attempt to load the object after deletion </button>
+					<p id="demo_6"> </p>
+					
+					<script>
+					
+					function DeleteSuperman() {
+						if (typeof(Storage) !== "undefined") {
+
+						//Saving Object:
+						//fileSuperman = { codeName: "Superman", age: 32, city: "Metropolis" };
+						//JSONSuperman = JSON.stringify(fileSuperman);
+						//localStorage.setItem("HeroJSON", JSONSuperman);
+						
+						// Delete Entire "Superman" Property.
+						// localStorage.clear('fileSuperman');
+						
+						// Delete a single name-value pair from the "Superman" Object.
+							localStorage.removeItem("HeroJSON");
+						
+						//Loading Object:
+							if (typeof(Storage) !== "undefined") {
+								document.getElementById("demo_6").innerHTML = "Uh oh, there's nothing here.";
+							} else {
+							text = localStorage.getItem("HeroJSON");
+							Superman = JSON.parse(text);
+							document.getElementById("demo_6").innerHTML = Superman.codeName;
+									}
+							} else {
+								alert("Sorry, there's no web storage support on this browser!");
+									}
+					}
+					
+					</script>
+					
+			
+		<hr>	
+			<h1> *Session Storage </h1>
+				
+				<p> Temporarily stores data. </p>
+				<p> Information will be deleted when the tab is closed. </p>
+				
+				<p id="demo_7"></p>
+
+				<script>
+				function clickCounter() {
+					if(typeof(Storage) !== "undefined") {
+						if (sessionStorage.clickcount) {
+							sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+						} else {
+							sessionStorage.clickcount = 1;
+							//document.getElementById("result").innerHTML = "I think Batman can take on " + sessionStorage.clickcount + " bad guy, in one session.";
+						}
+						document.getElementById("result").innerHTML = "I think Batman can take on " + sessionStorage.clickcount + " bad guys, in one session.";
+					
+					} else {
+						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+					}
+				}
+				</script>
+				</script>
+
+				<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+				<div id="result"></div>
+				<p>How many bad guys do you think Batman can fight at once?</p>
+				<p>If you close the browser tab to try again, you will notice that the counter has reset.</p>
+		
+		</body>	
+	</html>
