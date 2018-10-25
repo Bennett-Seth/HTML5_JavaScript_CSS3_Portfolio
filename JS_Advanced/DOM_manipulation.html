@@ -1,0 +1,242 @@
+
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<meta charset="utf-8">
+			<title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
+			
+		</head>
+		<body>
+		
+		<h1> DOM Selection Tools </h1>
+		
+			<h2> 1. Get Element by ID  </h2>
+			
+				<p> What greeting do you first not understand, later celebrate, and then finally dread?  </p>
+
+				<button onclick="riddleOne()"> Click Me! </button>
+				
+				<p id="demo_1"> </p>
+				
+				<script>
+					function riddleOne(){
+					document.getElementById("demo_1").innerHTML = "Happy Birthday!";
+					}
+				</script>
+			
+			<h2> 2. Get Element by Tag Name  </h2>
+			
+				<p> Why does outer space, stay in outter space? </p>
+
+				<button onclick="riddleTwo()"> Click Me! </button>
+				
+				<p id="demo_2"> The answer is... </p>
+				
+				<script>
+					function riddleTwo(){
+					var x = document.getElementsByTagName("p");
+					var y = x[3].innerHTML = "Because it's afraid of Chuck Norris";
+					}
+				</script>
+				
+			<h2> 3. Get Element by Class Name  </h2>
+			
+				<p class="special"> The First rule of Chuck Norris is: </p>
+
+				<button onclick="riddleThree()"> Click Me! </button>
+				<br> 
+				<p class="special" id="demo_3"> The answer is... </p>
+				
+				<script>
+					function riddleThree(){
+					var x = document.getElementsByClassName("special");
+					var y = x[1].innerHTML = "you do not talk about Chuck Norris.";
+					}
+				</script>
+				
+		<h1> Changing HTML Elements </h1>
+		
+			<h2> 1. Change the attribute value of an HTML element  </h2>
+		
+				<p> Fix my picture. </p>
+
+				<button onclick="fixMyPic()"> Input the right source. </button>
+				<button onclick="breakMyPic()"> Input the wrong source. </button>
+				<br>
+				
+				<img id="Seth_and_Sloan" src="nap_time.jpg" alt="Uncle_and_Nephew_Together" style="padding:1em">
+				
+				<script>
+					function fixMyPic(){
+					document.getElementById("Seth_and_Sloan").src = "nap_time.jpg";
+					}
+					
+					function breakMyPic() {
+					document.getElementById("Seth_and_Sloan").src = "nap_times.jpg";
+					}
+				</script>
+				
+			<h2> 2. Change the style of an HTML element  </h2>
+		
+				<p> Wanna see me change color? </p>
+
+				<button onclick="riddleSix()"> Click here to see. </button>
+		
+				<p id="demo_6"> Abra Kadabra </p>
+				
+				<button onclick="riddleSeven()"> Change me back. </button>
+				
+				<script>
+					function riddleSix(){
+					document.getElementById("demo_6").style.color = "red";
+					}
+				</script>
+				
+				<script>
+					function riddleSeven(){
+					document.getElementById("demo_6").style.color = "black";
+					}
+				</script>
+		
+		<h1> DOM Manipulation </h1>
+		
+			<h2>1. Using the createElement and appendChild commands. </h2>
+			
+				<p> How does Chuck Norris do pushups? </p>
+				
+				<p id="demo_7">  </p>
+				
+				<button onclick="addMsg()"> Answer </button>
+
+				<script>
+				function addMsg() {
+				var para = document.createElement("p");
+				var t = document.createTextNode("He doesn't push himself up, he pushes the earth down.");
+				para.appendChild(t);
+				document.getElementById("demo_7").appendChild(para);
+				
+				}
+				</script>
+				
+			<h2>2. Using the insertBefore command.</h2>
+			
+				<p> Lets add to your grocery list. </p>
+
+				<button onclick="addIce()"> Add Ice </button>
+				<button onclick="addPop()"> Add Pop </button>
+				<button onclick="addSoda()"> Add Soda </button>
+
+				<ul id="demo_9"> 
+					<li> Apples </li>
+					<li> Lettuce </li>
+					<li> Oranges </li>
+				</ul>
+				
+				<script>
+				function addIce() {
+					
+					var newItem = document.createElement("LI");
+					var textnode = document.createTextNode("Ice");
+					newItem.appendChild(textnode);
+
+					var list = document.getElementById("demo_9");
+					list.insertBefore(newItem, list.childNodes[0]);
+					}
+				
+				function addPop() {
+					
+					var newItem = document.createElement("LI");
+					var textnode = document.createTextNode("Pop");
+					newItem.appendChild(textnode);
+
+					var list = document.getElementById("demo_9");
+					list.insertBefore(newItem, list.childNodes[0]);
+					}
+				
+				function addSoda() {
+					
+					var newItem = document.createElement("LI");
+					var textnode = document.createTextNode("Soda");
+					newItem.appendChild(textnode);
+
+					var list = document.getElementById("demo_9");
+					list.insertBefore(newItem, list.childNodes[0]);
+					}
+					
+				</script>
+				
+				
+			<h2>3. Using the removeChild command.</h2>
+			
+				<p> Lets add to your grocery list. </p>
+
+				<button onclick="deleteApples()"> Delete Apples </button>
+				<button onclick="deleteOranges()"> Delete Lettuce </button>
+				<button onclick="deleteLettuce()"> Delete Oranges </button>
+
+				<ul id="demo_10"> 
+					<li id="apples"> Apples </li>
+					<li id="lettuce"> Lettuce </li>
+					<li id="oranges"> Oranges </li>
+					<li id="bacon"> Bacon </li>
+				</ul>
+				
+				<script>
+				function deleteApples() {
+					var parent = document.getElementById("demo_10");
+					var child = document.getElementById("apples");
+					parent.removeChild(child);
+					
+					}
+				
+				function deleteOranges() {
+					var parent = document.getElementById("demo_10");
+					var child = document.getElementById("lettuce");
+					parent.removeChild(child);
+					
+					}
+				
+				function deleteLettuce() {
+					var parent = document.getElementById("demo_10");
+					var child = document.getElementById("oranges");
+					parent.removeChild(child);
+					
+					}
+					
+				</script>
+		
+			<h2>***4. Using the replaceChild command. </h2>
+
+				<button onclick="replaceTommy()"> Click here to replace Tommy </button>
+
+				<div>
+					<span id="childSpan"> Tommy and Sally, sitting in a tree. </span>
+					<br>
+				</div>
+
+				<script>
+					function replaceTommy(){
+						var newText = document.createElement("span");
+						newText.id = "newSpan";
+						var newText_content = document.createTextNode("Jason and Sally, sitting in a tree.");
+						newText.appendChild(newText_content);
+						var oldText = document.getElementById("childSpan");
+						var parentDiv = oldText.parentNode;
+						parentDiv.replaceChild(newText, oldText);
+					}
+				
+				</script>
+				
+	
+			<h2>5. Write directly into the HTML stream. </h2>
+			
+				<p> Did you forget to? </p>
+
+				<script>
+					document.write("Make a dentist appointment");
+				</script>
+				
+				<p> Note: If you use the document.write() command after the page has loaded, all your previous HTML content will be rewritten. </p> 
+		
+		</body>	
+	</html>
