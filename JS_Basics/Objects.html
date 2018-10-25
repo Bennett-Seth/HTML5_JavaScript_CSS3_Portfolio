@@ -12,176 +12,208 @@
 <!-- Link to JS Objects Tutorial - https://www.w3schools.com/js/js_object_definition.asp -->
 			<h1> Create an Object </h1>
 				
-				<p> Objects record information in name-value pairs, called "properties" and "values" </p>
-				<p> Not to be confused with arrays, which only hold individual values within a single variable </p>
-				<p id="demo_1"></p>
+				<p> First, we will build and summon details from an object. </p>
+		
+				<button onclick="jamesBond()"> Who is the best spy? </button>
 				
 					<script>
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond"
-					};
-
-					document.getElementById("demo_1").innerHTML =
-					customer.firstName + " " + customer.lastName;
-					</script>
+					function jamesBond(){
+						var customer = {
+							firstName : "James",
+							lastName  : "Bond",
+							age       : 32,
+							eyeColor  : "blue",
+							hairColor : "blond"
+						};
 			
+						document.getElementById("demo_1").innerHTML =
+						customer.firstName + " " + customer.lastName;
+					}
+					</script>
+					
+					<p id="demo_1"></p>
+					
 			<h1> Object Methods and Instantiation </h1>
 				
-				<h2> Instantiate with the "this" keyword. </h2>
-				<p> An object method is an object property containing a function definition </p>
-				<p> We are also using the "this" keyword to Instantiate the object itself.</p>
+				<h2> Second, we will use a Method within the object and instantiate with the "this" keyword. </h2>
+				
+				<button onclick="inspectorGadget()"> Who is the clumsiest spy? </button>
 				
 				<p id="demo_2"></p>
 				
 					<script>
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond",
-						fullName : function fullName() {return this.firstName + " " + this.lastName;}
-					};
+						function inspectorGadget(){
+							var customer = {
+								firstName : "Inspector",
+								lastName  : "Gadget",
+								age       : 32,
+								eyeColor  : "blue",
+								hairColor : "blond",
+								fullName : function fullName() {return this.firstName + " " + this.lastName;}
+							};
 
-					document.getElementById("demo_2").innerHTML =
-					customer.fullName();
+								document.getElementById("demo_2").innerHTML =
+								customer.fullName();
+						}
 					</script>
 					
-				<h2> Instantiate with the "new" keyword. </h2>
-				<p> You can also Instantiate with the "new" keyword. Not recommended for JS use. </p>	
-				
-					<p id="demo_new"></p>
+				<h2> Third, an example of instantiation with the "new" keyword. </h2>
+					<p> You can also Instantiate with the "new" keyword. Not recommended for JS use, but here's an example. </p>	
+					
+					<button onclick="favWiz()"> How old is my favorite wizard, Savren? </button>
+					
+						<p id="demo_new"></p>
 
-					<script>
-					var Character = new Object();
-					Character.firstName = "Savren";
-					Character.lastName = "Blight Bringer";
-					Character.age = 32;
-					Character.eyeColor = "grey"; 
+						<script>
+							function favWiz(){
+								var Character = new Object();
+								Character.firstName = "Savren";
+								Character.lastName = "Blight Bringer";
+								Character.age = 32;
+								Character.eyeColor = "grey"; 
 
-					document.getElementById("demo_new").innerHTML =
-					Character.firstName + " is " + Character.age + " years old.";
-					</script>
+								document.getElementById("demo_new").innerHTML =
+								Character.firstName + " is " + Character.age + " years old.";
+						}
+						</script>
 
 					
 			<h1> Accesssing Object Properties </h1>
 				
+				<p> Next, we will access specific object properties, in this case, age. </p>
+				
+				<button onclick="favSpy()"> How old is James Bond? </button>
+				
 				<p id="demo_3"></p>
 				
 					<script>
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond"
-					};
+						function favSpy(){
+							var customer = {
+								firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+								hairColor : "blond"
+							};
 
-					document.getElementById("demo_3").innerHTML =
-					customer.firstName + " " + customer.lastName + " is " + customer.age + " years old.";
+						document.getElementById("demo_3").innerHTML =
+						customer.firstName + " " + customer.lastName + " is " + customer.age + " years old.";
+					}
 					</script>
 
-			<h1> Cycle Through properties of an object (for-in loop)  </h1>
+			<h1> Cycle Through properties of an object (for-in loop).  </h1>
+				<p> Now we will print the entire contents of the "superSpy" object. </p>
+				<button onclick="favDetails()"> How old is James Bond? </button>
+				
 				<p id="demo_4"></p>
 					<script>
-					var txt = "";
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond"
-					};
-					var x;
-					for (x in customer) {
-						txt += customer[x] + ", ";
-					}
-					document.getElementById("demo_4").innerHTML = txt;
+						function favDetails(){
+							var txt = "";
+							var superSpy = {
+								firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+								hairColor : "blond"
+							};
+							var x;
+							for (x in superSpy) {
+								txt += superSpy[x] + ", ";
+							}
+							document.getElementById("demo_4").innerHTML = txt;
+						}
 					</script>
 				
 			<h1> Add New Properties  </h1>
-				
+				<p> Here, we will add and print Mr. Bond's favorite weapon to his object. </p>
+				<button onclick="favGun()"> What is Mr. Bond's favorite weapon? </button>
 				<p id="demo_5"></p>
 				
 					<script>
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond"
-					};
-					customer.weapon = "Walther PPK";
+						function favGun(){
+							var superSpy = {
+								firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+								hairColor : "blond"
+							};
+							superSpy.weapon = "Walther PPK";
 
-					document.getElementById("demo_5").innerHTML =
-					customer.firstName + " use a " + customer.weapon + ".";
+							document.getElementById("demo_5").innerHTML =
+							superSpy.firstName + " use a " + superSpy.weapon + ".";
+						}
 					</script>
 
 			<h1> Delete Properties </h1>
+				<p> Oh no! Mr. Bond's cover is blown. Better delete his hair color so he can hide...</p>
+				<button onclick="deleteHair()"> What is Mr. Bond's hair color? </button>
 				<p id="demo_6"></p>
+				<p id="demo_extra"></p>
 				
 					<script>
-					var customer = {
-						firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-						hairColor : "blond"
-					};
-					delete customer.hairColor;
+						function deleteHair(){
+							var superSpy = {
+								firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+								hairColor : "blond"
+							};
+							delete superSpy.hairColor;
 
-					document.getElementById("demo_6").innerHTML =
-					customer.firstName + " is " + customer.hairColor + ".";
+							document.getElementById("demo_6").innerHTML =
+							superSpy.firstName + " is " + superSpy.hairColor + ".";
+							document.getElementById("demo_extra").innerHTML = "Don't panic, it's supposed to be undefined. We just deleted that info!";
+						}
 					</script>
 			
-			<h1> Accessing Object Methods... </h1>
+			<h1> Accessing Object Methods </h1>
 				
-				<p> To activate the method </p>
+				<button onclick="printResult()"> Click me to activate the fullName function. </button>
 				<p id="demo_7"></p>
 
 				<script>
-			
-				var customer = {
-					firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-					fullName : function() {
-					   return this.firstName + " " + this.lastName;
-					}
-				};
+					function printResult(){
+						var customer = {
+							firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+							fullName : function() {
+							   return this.firstName + " " + this.lastName;
+							}
+						};
 
-				document.getElementById("demo_7").innerHTML = customer.fullName();
+						document.getElementById("demo_7").innerHTML = customer.fullName();
+				}
 				</script>
-				
-				<p> To call the method's function definition </p>
+
+				<button onclick="printDetails()"> Click me to see the details of the fullName function. </button>
 				<p id="demo_8"></p>
 
 				<script>
-			
-				var customer = {
-					firstName : "James",
-						lastName  : "Bond",
-						age       : 32,
-						eyeColor  : "blue",
-					fullName : function() {
-					   return this.firstName + " " + this.lastName;
-					}
-				};
+					function printDetails(){
+						var customer = {
+							firstName : "James",
+								lastName  : "Bond",
+								age       : 32,
+								eyeColor  : "blue",
+							fullName : function() {
+							   return this.firstName + " " + this.lastName;
+							}
+						};
 
-				document.getElementById("demo_8").innerHTML = customer.fullName;
+						document.getElementById("demo_8").innerHTML = customer.fullName;
+				}
 				</script>
 								
 			<h1> Object Constructor Functions </h1>
-		
+				<button onclick="addHero()"> Build and print the details of the "myWizard" object, using a constructor. </button>
 				<p id="demo_9"></p>
 
 					<script>
-
+						function addHero(){
 						// Constructor function for Character objects
 						function Character(first, last, age, eye) {
 							this.firstName = first;
@@ -195,18 +227,26 @@
 						var myDruid = new Character("Lucian", "Thorn", 35, "green");
 
 						// Display age
-						document.getElementById("demo_9").innerHTML =
-						"My Wizard is " + myWizard.age + " years old."; 
-
+						var x = 0;
+						var txt = "";
+							for (x in myWizard) {
+								txt += myWizard[x] + ", ";
+							}
+							document.getElementById("demo_9").innerHTML = txt;
+						
+						
+						//document.getElementById("demo_9").innerHTML =
+						//"My Wizard is " + myWizard.age + " years old."; 
+					}
 					</script>
 
 				
 			<h1> Adding a Method to an Constructed Object </h1>
-			
+				<button onclick="addFullName()"> Build and print the fullName function for my Wizard. </button>
 				<p id="demo_10"></p>
 				
 				<script>
-
+					function addFullName(){
 					// Constructor function for Character objects
 						function Character(first, last, age, eye) {
 							this.firstName = first;
@@ -227,16 +267,18 @@
 					// Display full name
 					document.getElementById("demo_10").innerHTML =
 					"My Wizard is " + myWizard.name(); 
+					}
 				</script>
 			
 			<h1> Adding a Property to an Constructed Object </h1>
-			
+				<button onclick="addRace()"> Add the "race" property to my constructor function. </button>
+				
 				<p id="demo_11"></p>
 					
 				<p> Note: You can not add and delete properties to Constructed Objects from outside the initial Object Constructor code. </p>
 				
 				<script>
-
+					function addRace(){
 					// Constructor function for Heroes objects.
 						function Heroes(first, last, age, eye) {
 							this.firstName = first;
@@ -254,7 +296,7 @@
 						// Display first Hero and race
 					document.getElementById("demo_11").innerHTML =
 					myFighter.firstName + " is " + myFighter.race + ". " + myMage.firstName + " is " + myMage.race; 
-					
+				}	
 				</script>
 			
 			
@@ -267,10 +309,12 @@
 				<p> Only modify your <i> own </i> prototypes, not standard JS objects. </p>
 			
 			<h2> Add Properties and Methods to a Prototype or Object Constructor </h2>
+				<button onclick="addProto()"> Implement and display the results of the myWizard.name() function. </button>
 					
 				<p id="demo_12"></p>
 
 					<script>
+					function addProto(){
 						function Character(first, last, age, eye) {
 								this.firstName = first;
 								this.lastName = last;
@@ -284,47 +328,53 @@
 						var myWizard = new Character("Daven", "Frostfall", 50, "blue");
 						document.getElementById("demo_12").innerHTML =
 						"My Wizard is " + myWizard.name(); 
+					}
 					</script>
 
 			<h2> JS Getter </h2>
-			
 				<p>Getters and setters allow you to get and set properties via methods.</p>
-				<p>This example uses a lang property to get the value of the language property.</p>
+
+				<button onclick="addLang()"> Use a "lang" getter function to get and display the value of the language property. </button>
 				
 				<p id="demo_13"></p>
 
 					<script>
-					// Create an object:
-					var Character = {
-						firstName: "Daven",
-						lastName : "Frostfall",
-						language : "Common",
-						get lang() {
-						   return this.language;
-						}
-					};
-					// Display data from the object using a getter:
-					document.getElementById("demo_13").innerHTML = "My Wizard speaks " + Character.lang + ".";
-					</script>
-					
-			<h2> JS Setter </h2>
-			
-				<p id="demo_14"></p>
-
-					<script>
+					function addLang() {
 						// Create an object:
 						var Character = {
 							firstName: "Daven",
 							lastName : "Frostfall",
-							language : "NONE",
-							set lang(value) {
-							   this.language = value;
+							language : "Common",
+							get lang() {
+							   return this.language;
 							}
 						};
-						// Set a property using set:
-						Character.lang = "Elfish";
-						// Display data from the object:
-						document.getElementById("demo_14").innerHTML = "My Wizard speaks " + Character.language + ".";
+						// Display data from the object using a getter:
+						document.getElementById("demo_13").innerHTML = "My Wizard speaks " + Character.lang + ".";
+					}
+					</script>
+					
+			<h2> JS Setter </h2>
+				<button onclick="addElfish()"> Use a "lang" setter function to set and display the value of the language property. </button>
+				
+				<p id="demo_14"></p>
+
+					<script>
+						function addElfish(){
+							// Create an object:
+							var Character = {
+								firstName: "Daven",
+								lastName : "Frostfall",
+								language : "NONE",
+								set lang(value) {
+								   this.language = value;
+								}
+							};
+							// Set a property using set:
+							Character.lang = "Elfish";
+							// Display data from the object:
+							document.getElementById("demo_14").innerHTML = "My Wizard speaks " + Character.language + ".";
+						}
 					</script>
 
 			
