@@ -1,0 +1,166 @@
+
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<meta charset="utf-8">
+			<title> Manipulating CSS Class Properties Using JavaScript </title>
+			
+		</head>
+		<body>
+		
+		<h1> Changing CSS Properties by Id </h1>
+		
+			<h2> Changing Colors </h2>
+			
+				<p id="demo_1" style="color:black"> What color should I be today? </p>
+
+				<button onclick="changeMeRed()"> Red </button>
+				
+				<button onclick="changeMeGreen()"> Green </button>
+				
+				<button onclick="changeMeBlack()"> Black </button>
+				
+				<script>
+				function changeMeRed() {
+				if (document.getElementById('demo_1').style.color = 'black')
+					document.getElementById('demo_1').style.color = 'red';
+				else if (document.getElementById('demo_1').style.color = 'green')
+					document.getElementById('demo_1').style.color = 'red';
+				}
+				
+				function changeMeGreen() {
+				if (document.getElementById('demo_1').style.color = 'black')
+					document.getElementById('demo_1').style.color = 'green';
+				else if (document.getElementById('demo_1').style.color = 'red')
+					document.getElementById('demo_1').style.color = 'green';
+				}
+				
+				function changeMeBlack() {
+				if (document.getElementById('demo_1').style.color = 'green')
+					document.getElementById('demo_1').style.color = 'black';
+				else if (document.getElementById('demo_1').style.color = 'red')
+					document.getElementById('demo_1').style.color = 'black';
+				}
+				
+				</script>
+			
+			<h2> Changing Fonts </h2>
+			
+				<p id="demo_2" style="font-family:'Times New Roman', Times, serif"> What Font should I be today? </p>
+
+				<button onclick="changeMeGeorgia()"> Make me Georgia </button>
+				
+				<button onclick="changeMeArial()"> Make me Arial </button>
+				
+				<button onclick="changeMeCourierNew()"> Make me Courier New </button>
+				
+				<script>
+				function changeMeGeorgia() {
+				if (document.getElementById('demo_2').style.fontFamily = '"Arial", Helvetica, sans-serif')
+					document.getElementById('demo_2').style.fontFamily = '"Georgia", serif';
+				else if (document.getElementById('demo_2').style.fontFamily = '"Courier New", Courier, monospace')
+					document.getElementById('demo_2').style.fontFamily = '"Georgia", serif';
+				else if (document.getElementById('demo_2').style.fontFamily = "'Times New Roman', Times, serif")
+					document.getElementById('demo_2').style.fontFamily = '"Georgia", serif';
+				}
+				
+				function changeMeArial() {
+				if (document.getElementById('demo_2').style.fontFamily = '"Georgia", serif')
+					document.getElementById('demo_2').style.fontFamily = '"Arial", Helvetica, sans-serif';
+				else if (document.getElementById('demo_2').style.fontFamily = '"Courier New", Courier, monospace')
+					document.getElementById('demo_2').style.fontFamily= '"Arial", Helvetica, sans-serif';
+				else if (document.getElementById('demo_2').style.fontFamily = "'Times New Roman', Times, serif")
+					document.getElementById('demo_2').style.fontFamily = '"Arial", Helvetica, sans-serif';
+				}
+				
+				function changeMeCourierNew() {
+				if (document.getElementById('demo_2').style.fontFamily = '"Arial", Helvetica, sans-serif')
+					document.getElementById('demo_2').style.fontFamily = '"Courier New", Courier, monospace';
+				else if (document.getElementById('demo_2').style.fontFamily = '"Georgia", serif')
+					document.getElementById('demo_2').style.fontFamily = '"Courier New", Courier, monospace';
+				else if (document.getElementById('demo_2').style.fontFamily = "'Times New Roman', Times, serif")
+					document.getElementById('demo_2').style.fontFamily = '"Courier New", Courier, monospace';
+				}
+				
+				</script>
+				
+			<h2> Hiding Elements from View </h2>
+			
+				<p id="demo_3"> Now you see me... </p>
+
+				<button onclick="vanish()"> Vanish </button>
+				
+				<button onclick="appear()"> Appear </button>
+				
+				<script>
+				function vanish() {
+					document.getElementById('demo_3').style.visibility = 'hidden';
+				}
+				
+				function appear() {
+					document.getElementById('demo_3').style.visibility = 'visible';
+				}
+				
+				</script>
+				
+		<h1> Changing CSS properties through a class selector </h1>
+		
+			<h2 class="intro" style="font-family:'Times New Roman', Times, serif"> Hi, my name is Seth. </h2>
+		
+				<p class="intro"> I'm a full-stack web developer. </p>
+				
+				<p class="intro"> This is a cool trick. </p>
+
+				<button onclick="styleOn()"> Add a new style. </button>
+				
+				<button onclick="styleOff()"> Return the old style. </button>
+				
+				<script>
+				function styleOn() {
+					var x = document.getElementsByClassName('intro');
+					var i;
+					for (i = 0; i < x.length; i++) {
+						x[i].style.color = 'green';
+						x[i].style.fontFamily = '"Georgia", serif';
+						}
+				}
+				
+				//getElementsByClassName('ace_features')[0].style.color='black';
+				
+				//document.getElementsByClassName('changeMe')[0].innerHTML='yellow';
+				
+				function styleOff() {
+					var x = document.getElementsByClassName('intro');
+					var i;
+					for (i = 0; i < x.length; i++) {
+						x[i].style.color = 'black';
+						x[i].style.fontFamily = '"Times New Roman", Times, serif';
+						}
+				}
+
+				</script>	
+			
+			<h2> Event-Based CSS Class Changes </h2>
+		
+				<p id="demo_4"> I'm a full-stack web developer. </p>
+
+				<button type='button' onclick="document.getElementById('demo_4').style.color = 'red'"> Add a color change </button>
+
+			<h2> Style This Page </h2>
+		
+				<p> Use the buttons below to style this page as you like. </p>
+
+				<button onclick="redBg()"> Add a red background </button>
+				
+				<script>
+				function redBg(){
+					document.body.style.backgroundColor = "red";
+					
+					//var x = document.getElementsByTagName("h1");
+					//x.style.background = "red";
+				}
+				</script>
+				
+			
+		</body>	
+	</html>
