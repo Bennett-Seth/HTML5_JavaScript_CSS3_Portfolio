@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title> Designing, Defining, and Triggering CSS3 Transitions (without custom libraries) </title>
+        
+		<style>
+			#dog_pic_1{
+				-webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+				transition: width 2s;
+			}
+			
+			#dog_pic_1:hover{
+				width: 200px;
+			}
+			
+			#dog_pic_2{
+				-webkit-transition: height 2s; /* For Safari 3.1 to 6.0 */
+				transition: height 2s;
+			}
+			
+			#dog_pic_2:hover{
+				height: 200px;
+			}
+			
+			#dog_pic_3{
+				-webkit-transition: width 2s, height 2s; /* For Safari 3.1 to 6.0 */
+				transition: width 2s, height 2s;
+			}
+			
+			#dog_pic_3:hover{
+				height: 200px;
+				width: 200px;
+			}
+			
+			/* Standard syntax */
+			#div1 {transition-timing-function: linear;}
+			#div2 {transition-timing-function: ease;}
+			#div3 {transition-timing-function: ease-in;}
+			#div4 {transition-timing-function: ease-out;}
+			#div5 {transition-timing-function: ease-in-out;}
+			
+			/* For Safari 3.1 to 6.0 */
+			#div1 {-webkit-transition-timing-function: linear;}
+			#div2 {-webkit-transition-timing-function: ease;}
+			#div3 {-webkit-transition-timing-function: ease-in;}
+			#div4 {-webkit-transition-timing-function: ease-out;}
+			#div5 {-webkit-transition-timing-function: ease-in-out;}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background: green;
+				-webkit-transition: width 2s; /* Safari */
+				transition: width 2s;
+				font-family: "Arial", Helvetica, sans-serif;
+			}
+
+			div:hover {
+				width: 300px;
+			}
+			
+		</style>
+		
+    </head>
+	<body>
+		<h1>!SEE BELOW FOR HOVER OPTIONS! </h1>
+		<h1> Designing, Defining and Triggering CSS3 Transitions without custom libraries </h1>
+		<p> https://www.w3schools.com/css/css3_transitions.asp </p>
+		
+		<h2> Transitions can affect any specified CSS property </h2>
+			<p> Base Image </p> 
+			<img id="dog_pic" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+		<h2> 1. Gain Width on Hover </h2>
+			<img id="dog_pic_1" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+		<h2> 2. Gain Height on Hover </h2>
+			<img id="dog_pic_2" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+		<h2> 3. Gain Width and Height on Hover </h2>
+			<img id="dog_pic_3" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+		<h2>4. Property:Transition-Timing-Function</h2>
+				<p>To see the different speed curves hover over the div elements below. Each setting has it's own acceleration.</p>
+
+				<div id="div1">Linear</div><br>
+				<div id="div2">Ease</div><br>
+				<div id="div3">Ease-in</div><br>
+				<div id="div4">Ease-out</div><br>
+				<div id="div5">Ease-in-out</div><br>
+		
+    </body>
+	
+</html>
