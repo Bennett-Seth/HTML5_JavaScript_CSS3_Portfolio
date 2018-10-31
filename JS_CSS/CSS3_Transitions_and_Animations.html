@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title> CSS3 Transitions and Animations </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style> 
+
+			#blue_square {
+				width: 100px;
+				height: 100px;
+				background: blue;
+				-webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+				transition: width 2s, height 2s, transform 2s;
+			}
+			
+			#black_square {
+				width: 100px;
+				height: 100px;
+				background: black;
+				-webkit-transition: width 2s linear 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 2s linear 1s;
+			}
+
+			#black_square:hover {
+				width: 200px;
+
+			}
+			
+			#buttons {
+				margin-bottom: 100px;
+			}
+			
+			#animateMeBox {
+				border-style: solid;
+				border-width: 2px;
+				height: 400px;
+				width: 400px;
+				position: relative;
+			}
+			
+			#animateMeBox p {
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				font-family: "Times New Roman", Times, serif;
+				font-size: 2em;
+			}
+			
+		</style>
+		
+    </head>
+	<body>
+		<h1> ***Animate Issues Below</h1>
+		<h1> Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript </h1>
+			<p> https://www.w3schools.com/css/css3_transitions.asp </p>
+			<p> https://www.w3schools.com/w3css/w3css_animate.asp </p>
+			
+			<h2> 1. Time to Trim the Dog </h2>
+			
+				<img id="dog_pic" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+				<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+				
+				<br>
+				
+				<button onclick="doubleDog1()"> Fatten Me Up </button>
+				
+				<button onclick="singleDog1()"> Thin Me Down </button>
+				
+				<script>
+					function doubleDog1() {
+						document.getElementById("dog_pic").style.width = '200px';
+						document.getElementById("dog_pic").style.height = '200px';
+						document.getElementById("dog_pic").style.transition = 'width 2s, height 2s';
+					}
+					
+					function singleDog1() {
+						document.getElementById("dog_pic").style.width = '100px';
+						document.getElementById("dog_pic").style.height = '100px';
+						document.getElementById("dog_pic").style.transition = 'width 2s, height 2s';
+					}
+
+				</script>
+					
+			<h2> 2. Delay the Transition Effect </h2>
+				<img id="dog_pic_1" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+				<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+				
+				<br>
+				<button onclick="doubleDog2()"> Fatten Me Up </button>
+				<button onclick="singleDog2()"> Thin Me Down </button>
+				
+				<script>
+					function doubleDog2() {
+						document.getElementById("dog_pic_1").style.width = '200px';
+						document.getElementById("dog_pic_1").style.height = '200px';
+						document.getElementById("dog_pic_1").style.transition = 'width 2s, height 2s';
+						document.getElementById("dog_pic_1").style.transitionDelay = '1s';
+					}
+					
+					function singleDog2() {
+						document.getElementById("dog_pic_1").style.width = '100px';
+						document.getElementById("dog_pic_1").style.height = '100px';
+						document.getElementById("dog_pic_1").style.transition = 'width 2s, height 2s';
+						document.getElementById("dog_pic_1").style.transitionDelay = '1s';
+					}
+
+				</script>
+
+			<h2>3. Combine Transitions and Transformation Effects</h2>
+				<div id="blue_square">  </div>
+				
+				<br>
+				<button onclick="blueSpin()"> Spin Me Around </button>
+				<button onclick="undoSpin()"> Fix Me </button>
+				
+				<script>
+					function blueSpin() {
+						document.getElementById("blue_square").style.width = '300px';
+						document.getElementById("blue_square").style.height = '300px';
+						document.getElementById("blue_square").style.transform = 'rotate(180deg)';
+					}
+					
+					function undoSpin() {
+						document.getElementById("blue_square").style.width = '100px';
+						document.getElementById("blue_square").style.height = '100px';
+						document.getElementById("blue_square").style.transform = 'rotate(180deg)';
+					}
+
+
+				</script>
+				
+			<h2>4. Another Transition Example, in CSS short-hand</h2>
+				<div id="black_square">  </div>
+				
+				<br>
+				<button onclick="growBlack()"> Bulk Me Up </button>
+				<button onclick="shrinkBlack()"> Thin Me Down </button>
+				
+				<script>
+					function growBlack(){
+						document.getElementById("black_square").style.width = '300px';
+						document.getElementById("black_square").style.transition = 'width 2s linear 0s';
+					}
+					
+					function shrinkBlack(){
+						document.getElementById("black_square").style.width = '100px';
+						document.getElementById("black_square").style.transition = 'width 2s linear 0s';
+					}
+					
+				</script>
+				
+				<p><b> The black square transformation combines: </b> </p>
+				<ul> 
+				<li>transition-property: width;</li>
+				<li>transition-duration: 2s; </li>
+				<li>transition-timing-function: linear; </li>
+				</ul>
+				<p><b>into a single CSS command: </b></p>
+				<ul> 
+					<li> transition: width 2s linear 1s; </li>
+				</ul>
+				<br>
+				<p><b>Warning:</b> This example will not work in Internet Explorer 9 and earlier versions.</p>
+	
+			<h2> Another challenge: https://www.w3schools.com/js/js_htmldom_animate.asp </h2>
+			<h2> https://css-tricks.com/controlling-css-animations-transitions-javascript/ </h2>
+		
+    </body>
+	
+</html>
