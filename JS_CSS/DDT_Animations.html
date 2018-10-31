@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title> Designing, Defining, and Triggering CSS3 Animations(without custom libraries) </title>
+		<style>
+		#colorChangeBox {
+			width: 150px;
+			height: 150px;
+			background-color: green;
+		}
+		
+		.colorChangeBox {
+			-webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			animation-name: example;
+			animation-duration: 4s;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example {
+			0%   {background-color: green;}
+			25%  {background-color: blue;}
+			50%  {background-color: yellow;}
+			75%  {background-color: red;}
+			100% {background-color: green;}
+		}
+		
+		/* Standard syntax
+		@keyframes example {
+			0%   {background-color: green;}
+			25%  {background-color: blue;}
+			50%  {background-color: yellow;}
+			75%  {background-color: red;}
+			100% {background-color: green;}
+		}
+		*/
+		
+		#ccbContainer_2 {
+			margin-bottom: 200px;
+		}
+		
+		#ccbContainer_5 {
+			margin-bottom: 200px;
+		}
+		
+		#ccbContainer_6 {
+			margin-bottom: 200px;
+		}
+		
+		#ccbContainer_9 {
+			margin-bottom: 200px;
+		}
+		
+		#colorChangeBox_2{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: relative;
+		}
+		
+		.colorChangeBox_2 {
+			-webkit-animation-name: example_2; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			animation-name: example_2;
+			animation-duration: 4s;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_2 {
+			0%   {background-color:blue; left:0px; top:0px;}
+			25%  {background-color:green; left:200px; top:0px;}
+			50%  {background-color:red; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:blue; left:0px; top:0px;}
+		}
+		
+		/* Standard syntax */
+		@keyframes example_2 {
+			0%   {background-color:blue; left:0px; top:0px;}
+			25%  {background-color:green; left:200px; top:0px;}
+			50%  {background-color:red; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:blue; left:0px; top:0px;}
+		}
+		
+		#colorChangeBox_3{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			position: relative;
+		}
+		
+		.colorChangeBox_3 {
+			-webkit-animation-name: example_3; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-iteration-count: 3; /* Safari 4.0 - 8.0 */
+			animation-name: example_3;
+			animation-duration: 4s;
+			animation-iteration-count: 3;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_3 {
+			0%   {background-color:yellow; left:0px;}
+			25%  {background-color:red; left:200px;}
+			50%  {background-color:green; left:200px;}
+			75%  {background-color:blue; left:0px;}
+			100% {background-color:yellow; left:0px;}
+		}
+		
+		/* Standard syntax */
+		@keyframes example_3 {
+			0%   {background-color:yellow; left:0px;}
+			25%  {background-color:red; left:200px;}
+			50%  {background-color:green; left:200px;}
+			75%  {background-color:blue; left:0px;}
+			100% {background-color:yellow; left:0px;}
+		}
+		
+		#colorChangeBox_4{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: relative;
+		}
+		
+		.colorChangeBox_4 {
+			-webkit-animation-name: example_4; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+			animation-name: example_4;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_4 {
+			0%   {background-color:red; left:0px;}
+			25%  {background-color:yellow; left:200px;}
+			50%  {background-color:blue; left:200px;}
+			75%  {background-color:green; left:0px;}
+			100% {background-color:red; left:0px;}
+		}
+		
+		/* Standard syntax */
+		@keyframes example_4 {
+			0%   {background-color:red; left:0px;}
+			25%  {background-color:yellow; left:200px;}
+			50%  {background-color:blue; left:200px;}
+			75%  {background-color:green; left:0px;}
+			100% {background-color:red; left:0px;}
+		}
+		
+		#colorChangeBox_5{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: relative;
+		}
+		
+		.colorChangeBox_5 {
+			-webkit-animation-name: example_5; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+			animation-name: example_5;
+			animation-duration: 4s;
+			animation-direction: reverse;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_5 {
+			0%   {background-color:blue; left:0px; top:0px;}
+			25%  {background-color:green; left:200px; top:0px;}
+			50%  {background-color:red; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:blue; left:0px; top:0px;}
+		}
+		
+		/* Standard syntax */
+		@keyframes example_5 {
+			0%   {background-color:blue; left:0px; top:0px;}
+			25%  {background-color:green; left:200px; top:0px;}
+			50%  {background-color:red; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:blue; left:0px; top:0px;}
+		}
+		
+		#colorChangeBox_6 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: relative;
+		}
+		
+		.colorChangeBox_6 {
+			-webkit-animation-name: example_6; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-iteration-count: 2; /* Safari 4.0 - 8.0 */
+			-webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+			animation-name: example_6;
+			animation-duration: 4s;
+			animation-iteration-count: 2;
+			animation-direction: alternate;    
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_6 {
+			0%   {background-color:red; left:0px; top:0px;}
+			25%  {background-color:yellow; left:200px; top:0px;}
+			50%  {background-color:blue; left:200px; top:200px;}
+			75%  {background-color:green; left:0px; top:200px;}
+			100% {background-color:red; left:0px; top:0px;}
+		}
+		
+		/* Standard syntax */
+		@keyframes example_6 {
+			0%   {background-color:red; left:0px; top:0px;}
+			25%  {background-color:yellow; left:200px; top:0px;}
+			50%  {background-color:blue; left:200px; top:200px;}
+			75%  {background-color:green; left:0px; top:200px;}
+			100% {background-color:red; left:0px; top:0px;}
+		}
+		
+		#colorChangeBox_7 {
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: relative;
+		}
+		
+		.colorChangeBox_7 {
+			-webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */    
+			-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+			animation-name: example_7;
+			animation-duration: 3s;    
+			animation-fill-mode: forwards;
+		}
+		
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example_7 {
+			from {top: 0px;}
+			to {top: 200px; background-color: red;}
+		}
+		
+		@keyframes example_7 {
+			from {left: 0px;}
+			to {left: 200px; background-color: red;}
+		}
+		
+		#colorChangeBox_8 {
+			width: 100px;
+			height: 100px;
+			background: green;
+			position: relative;
+		}
+		
+		.colorChangeBox_8 {
+			-webkit-animation-name: example_8;  /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */ 
+			-webkit-animation-fill-mode: backwards; /* Safari 4.0 - 8.0 */
+			animation-name: example_8;
+			animation-duration: 3s;  
+			animation-fill-mode: backwards;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example {
+			from {top: 0px; background-color: yellow;}
+			to {top: 200px;}
+		}
+		
+		@keyframes example_8 {
+			from {left: 0px; background-color: yellow;}
+			to {left: 200px;}
+		}
+		
+		#colorChangeBox_9 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: relative;
+		}
+		
+		.colorChangeBox_9 {
+			-webkit-animation-name: example_9;  /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */ 
+			-webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+			animation-name: example_9;
+			animation-duration: 3s; 
+			animation-fill-mode: both;
+		}
+
+		/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example {
+			from {top: 0px; background-color: yellow;}
+			to {top: 200px; background-color: blue;}
+		}
+				
+		@keyframes example_9 {
+			from {top: 0px; background-color: yellow;}
+			to {top: 200px; background-color: blue;}
+		}
+		
+		</style>
+	   
+    </head>
+	<body>
+		<h1>*** How to button-trigger CSS animations... Or is that just for "Transitions and Animations?" </h1>
+		
+		<h1> Designing, Defining and Triggering CSS3 Animations without custom libraries </h1>
+
+			<p> https://www.w3schools.com/css/css3_animations.asp </p>
+			<p> https://www.w3schools.com/cssref/css3_pr_animation.asp (extra) </p>
+		
+		<h2> 1. Keyframe Examples: Color Changing</h2>
+			<p> Use keyframes to stagger the rate of change for the animation. </p>	
+				<div id="colorChangeBox"> </div>
+				
+			<br>
+				
+				<button onclick="colorChangeDo()"> Change my color </button>
+				<button onclick="colorChangeFix()"> Change me back</button>
+				
+				<script>
+					function colorChangeDo() {
+						var element = document.getElementById("colorChangeBox");
+						element.classList.toggle("colorChangeBox");
+					}
+					
+					function colorChangeFix() {
+						var element = document.getElementById("colorChangeBox");
+						element.classList.toggle("colorChangeBox");
+					}
+
+				</script>
+				
+		<h2> 2. A Square Path for a Square Object</h2>
+			<div id="ccbContainer_2">
+				<div id="colorChangeBox_2"> </div>
+			</div>	
+			
+			<br>
+				
+				<button onclick="SquarePath()"> Run the square in a square shape </button>
+				<button onclick="UndoSquarePath()"> Change me back</button>
+				
+				<script>
+					function SquarePath() {
+						var element = document.getElementById("colorChangeBox_2");
+						element.classList.toggle("colorChangeBox_2");
+					}
+					
+					function UndoSquarePath() {
+						var element = document.getElementById("colorChangeBox_2");
+						element.classList.toggle("colorChangeBox_2");
+					}
+
+				</script>
+			
+		<h2> 3. Multiple Lateral Runs </h2>
+			<p> Here we see that animations can be set to run multiple times before expiring. </p>
+				<div id="colorChangeBox_3"> </div>
+			
+			<br>
+				
+				<button onclick="LateralPath()"> Move me to the left </button>
+				<button onclick="UndoLateralPath()"> Change me back</button>
+				
+				<script>
+					function LateralPath() {
+						var element = document.getElementById("colorChangeBox_3");
+						element.classList.toggle("colorChangeBox_3");
+					}
+					
+					function UndoLateralPath() {
+						var element = document.getElementById("colorChangeBox_3");
+						element.classList.toggle("colorChangeBox_3");
+					}
+
+				</script>
+			
+		<h2> 4. Infinite Runs </h2>
+			<p> Here we see that animations can be set to an infinite loop. </p>
+			<div id="colorChangeBox_4"> </div>
+			
+			<br>
+				
+				<button onclick="InfinitePath()"> Infinite moves to the left</button>
+				<button onclick="UndoInfinitePath()"> Undo </button>
+				
+				<script>
+					function InfinitePath() {
+						var element = document.getElementById("colorChangeBox_4");
+						element.classList.toggle("colorChangeBox_4");
+					}
+					
+					function UndoInfinitePath() {
+						var element = document.getElementById("colorChangeBox_4");
+						element.classList.toggle("colorChangeBox_4");
+					}
+
+				</script>
+			
+		<h2> 5. Reverse Direction </h2>
+			<p> With a simple command, we can switch the direction of the animation </p>
+			<div id="ccbContainer_5">
+				<div id="colorChangeBox_5"> </div>	
+			</div>
+			
+			<br>
+				
+				<button onclick="directionSwitch()"> Square run, in the opposite direction </button>
+				<button onclick="directionSwitch()"> Undo </button>
+				
+				<script>
+					function directionSwitch() {
+						var element = document.getElementById("colorChangeBox_5");
+						element.classList.toggle("colorChangeBox_5");
+					}
+					
+					function directionSwitch() {
+						var element = document.getElementById("colorChangeBox_5");
+						element.classList.toggle("colorChangeBox_5");
+					}
+
+				</script>
+
+		<h2> 6. Alternate Cycles </h2>
+			<p> With a simple command, we can switch the direction of the animation each time it runs an iteration </p>
+			<div id="ccbContainer_6">
+				<div id="colorChangeBox_6"> </div>	
+			</div>
+				
+			<br>
+				
+				<button onclick="directionChange()"> Each run, in the opposite direction </button>
+				<button onclick="undoDirectionChange()"> Undo </button>
+				
+				<script>
+					function directionChange() {
+						var element = document.getElementById("colorChangeBox_6");
+						element.classList.toggle("colorChangeBox_6");
+					}
+					
+					function undoDirectionChange() {
+						var element = document.getElementById("colorChangeBox_6");
+						element.classList.toggle("colorChangeBox_6");
+					}
+
+				</script>	
+				
+		<h2> 7. Fill-Mode for Animations </h2>
+			<p> Property: animation-fill-mode </p>
+			<p> Value: none (default value which won't apply animation elements before or after execution) </p>
+			<p> Value: forwards (element retains the style values used in the last keyframe)</p>
+			<p> Value: backwards (element retains the style values used in the first keyframe)</p>
+			<p> Value: both (element retains the style values used in both the first and last keyframes)</p>
+			<br>
+			<p> Value: Forwards. In the example below, the square will retain the position of last keyframe. </p>
+			<div id="colorChangeBox_7"> </div>
+			
+			<br>
+				
+				<button onclick="lastKeyframe()"> Go </button>
+				<button onclick="undoLastKeyframe()"> Undo </button>
+				
+				<script>
+					function lastKeyframe() {
+						var element = document.getElementById("colorChangeBox_7");
+						element.classList.toggle("colorChangeBox_7");
+					}
+					
+					function undoLastKeyframe() {
+						var element = document.getElementById("colorChangeBox_7");
+						element.classList.toggle("colorChangeBox_7");
+					}
+
+				</script>
+			
+			<br>
+			<p> Value: Backwards. In the example below, the square will retain the position and color of the first keyframe. </p>
+			<div id="colorChangeBox_8"> </div>
+			
+			<br>
+				
+				<button onclick="firstKeyframe()"> Go </button>
+				<button onclick="undoFirstKeyframe()"> Undo </button>
+				
+				<script>
+					function firstKeyframe() {
+						var element = document.getElementById("colorChangeBox_8");
+						element.classList.toggle("colorChangeBox_8");
+					}
+					
+					function undoFirstKeyframe() {
+						var element = document.getElementById("colorChangeBox_8");
+						element.classList.toggle("colorChangeBox_8");
+					}
+
+				</script>
+			
+			<br>
+			
+			<p> Value: Both. In the example below, the element ends with the style values from the first keyframe, and the style values from the last keyframe. </p>
+				<div id="ccbContainer_9">
+					<div id="colorChangeBox_9"> </div>	
+				</div>
+			
+			<br>
+				
+				<button onclick="bothKeyframe()"> Go </button>
+				<button onclick="undoBothKeyframe()"> Undo </button>
+				
+				<script>
+					function bothKeyframe() {
+						var element = document.getElementById("colorChangeBox_9");
+						element.classList.toggle("colorChangeBox_9");
+					}
+					
+					function undoBothKeyframe() {
+						var element = document.getElementById("colorChangeBox_9");
+						element.classList.toggle("colorChangeBox_9");
+					}
+
+				</script>
+			
+			<br>
+		
+    </body>
+	
+</html>
