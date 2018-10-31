@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title> Designing, Defining, and Triggering CSS3 Transforms (without custom libraries) </title>
+        <style>
+			
+			/* 2D Transformation Examples */
+			
+			.change_dog_pic_1{
+				-ms-transform: rotate(45deg); /* IE 9 */
+				-webkit-transform: rotate(45deg); /* Safari 3-8 */
+				transform: rotate(45deg);
+			}
+			
+			.change_dog_pic_2{
+				-ms-transform: skewY(20deg); /* IE 9 */
+				-webkit-transform: skewY(20deg); /* Safari 3-8 */
+				transform: skewY(20deg);
+			}
+			
+			.change_dog_pic_3{
+				-ms-transform: skewX(-20deg); /* IE 9 */
+				-webkit-transform: skewX(-20deg); /* Safari 3-8 */
+				transform: skewX(-20deg);
+			}
+			
+			.change_dog_pic_4{
+				-ms-transform: scaleY(1.5); /* IE 9 */
+				-webkit-transform: scaleY(1.5); /* Safari 3-8 */
+				transform: scaleY(1.5);
+			}
+			
+			.change_dog_pic_5{
+				-ms-transform: scaleX(1.5); /* IE 9 */
+				-webkit-transform: scaleX(1.5); /* Safari 3-8 */
+				transform: scaleX(1.5);
+			}
+			
+			container_6 {
+				margin-bottom: 200px;
+			}
+			
+			.change_dog_pic_6{
+				-ms-transform: translate(20px, 20px); /* IE 9 */
+				-webkit-transform: translate(20px, 20px); /* Safari 3-8 */
+				transform: translate(20px, 20px);
+			}
+			
+			container_7 {
+				margin-bottom: 200px;
+			}
+			
+			.change_dog_pic_7{
+				-ms-transform: matrix(1, 0, 0.5, 1, 25, 20); /* IE 9 */
+				-webkit-transform: matrix(1, 0, 0.5, 1, 25, 20); /* Safari */
+				transform: matrix(1, 0, 0.5, 1, 25, 20); /* Standard syntax */
+			}
+			
+			/* 3D Transformation Examples */
+			
+			.change_dog_pic_8{
+				-webkit-transform: rotateX(150deg); /* Safari */
+				transform: rotateX(150deg);
+			}
+			
+			.change_dog_pic_9{
+				-webkit-transform: rotateY(120deg); /* Safari */
+				transform: rotateY(120deg);
+			}
+			
+			.change_dog_pic_10{
+				-webkit-transform: rotateZ(90deg); /* Safari */
+				transform: rotateZ(90deg);
+			}
+			
+		</style>
+		
+    </head>
+	<body>
+		<h1>*** How to button-trigger CSS animations... Or is that just for "Transitions and Animations?"</h1>
+		<h1> Designing, Defining and Triggering CSS3 Transforms without custome libraries </h1>
+		<p> https://www.w3schools.com/cssref/css3_pr_transform.asp </p>
+		
+		<h2> Base Image </h2>
+			<img id="dog_pic" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+		<h2> CSS3 2D Transforms without custom libraries </h2>
+			<p> https://www.w3schools.com/css/css3_2dtransforms.asp </p>
+		
+		<h2> 1. The Transform Property: rotate() value </h2>
+			<img id="dog_pic_1" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+			<br>
+				
+				<button onclick="doubleDog1()"> Spin me to the left </button>
+				
+				<button onclick="singleDog1()"> Spin me back </button>
+				
+				<script>
+					function doubleDog1() {
+						var element = document.getElementById("dog_pic_1");
+						element.classList.toggle("change_dog_pic_1");
+					}
+					
+					function singleDog1() {
+						var element = document.getElementById("dog_pic_1");
+						element.classList.toggle("change_dog_pic_1");
+					}
+
+				</script>
+			
+		<h2> 2. The Transform Property: skewY() value  (skew along Y-axis) </h2>
+			<img id="dog_pic_2" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+				<button onclick="doubleDog2()"> Tilt me to the left </button>
+				
+				<button onclick="singleDog2()"> Tilt me back </button>
+				
+				<script>
+					function doubleDog2() {
+						var element = document.getElementById("dog_pic_2");
+						element.classList.toggle("change_dog_pic_2");
+					}
+					
+					function singleDog2() {
+						var element = document.getElementById("dog_pic_2");
+						element.classList.toggle("change_dog_pic_2");
+					}
+
+				</script>
+			
+		<h2> 3. The Transform Property: skewX() value (skew along X-axis)</h2>
+			<img id="dog_pic_3" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+				<button onclick="doubleDog3()"> Tilt me to the right </button>
+				<button onclick="singleDog3()"> Tilt me back </button>
+				
+				<script>
+					function doubleDog3() {
+						var element = document.getElementById("dog_pic_3");
+						element.classList.toggle("change_dog_pic_3");
+					}
+					
+					function singleDog3() {
+						var element = document.getElementById("dog_pic_3");
+						element.classList.toggle("change_dog_pic_3");
+					}
+
+				</script>
+		
+		<h2> 4. The Transform Property: scaleY() value (scale along Y-axis)</h2>
+			<img id="dog_pic_4" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+				<button onclick="doubleDog4()"> Make me taller </button>
+				<button onclick="singleDog4()"> Change me back </button>
+				
+				<script>
+					function doubleDog4() {
+						var element = document.getElementById("dog_pic_4");
+						element.classList.toggle("change_dog_pic_4");
+					}
+					
+					function singleDog4() {
+						var element = document.getElementById("dog_pic_4");
+						element.classList.toggle("change_dog_pic_4");
+					}
+
+				</script>
+		
+		<h2> 5. The Transform Property: scaleX() value (scale along X-axis)</h2>
+			<img id="dog_pic_5" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+				<button onclick="doubleDog5()"> Make me fatter </button>
+				<button onclick="singleDog5()"> Change me back </button>
+				
+				<script>
+					function doubleDog5() {
+						var element = document.getElementById("dog_pic_5");
+						element.classList.toggle("change_dog_pic_5");
+					}
+					
+					function singleDog5() {
+						var element = document.getElementById("dog_pic_5");
+						element.classList.toggle("change_dog_pic_5");
+					}
+
+				</script>
+		
+		<h2> 6. The Transform Property: translate() value (move object along X and Y axis)</h2>
+				<div id="container_6">
+					<img id="dog_pic_6" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+				<div>
+				<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+				<button onclick="doubleDog6()"> Shift me to the right and down </button>
+				<button onclick="singleDog6()"> Change me back </button>
+				
+				<script>
+					function doubleDog6() {
+						var element = document.getElementById("dog_pic_6");
+						element.classList.toggle("change_dog_pic_6");
+					}
+					
+					function singleDog6() {
+						var element = document.getElementById("dog_pic_6");
+						element.classList.toggle("change_dog_pic_6");
+					}
+
+				</script>
+		
+		<h2> 7. The Transform Property: matrix value (combine all 2d methods of transformation)</h2>
+			<p> Syntax: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())</p>
+			<p> Base Image </p>
+				<img id="dog_pic" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+				<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			<p> Matrix Image</p>
+				<div id="container_7">
+					<img id="dog_pic_7" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+				<div>
+				<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+				<button onclick="doubleDog7()"> Stretch me to the right and down </button>
+				<button onclick="singleDog7()"> Change me back </button>
+				
+				<script>
+					function doubleDog7() {
+						var element = document.getElementById("dog_pic_7");
+						element.classList.toggle("change_dog_pic_7");
+					}
+					
+					function singleDog7() {
+						var element = document.getElementById("dog_pic_7");
+						element.classList.toggle("change_dog_pic_7");
+					}
+
+				</script>
+		
+		<h1> CSS3 3D Transforms without custom libraries </h1>
+		<p> https://www.w3schools.com/css/css3_3dtransforms.asp </p>
+		
+		<h2> Base Image </h2>
+			<img id="dog_pic" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+		<h2> 8. The Transform Property:rotateX() value (rotate along X-axis)</h2>
+			<img id="dog_pic_8" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+				<button onclick="doubleDog8()"> Flip me upside down </button>
+				<button onclick="singleDog8()"> Change me back </button>
+				
+				<script>
+					function doubleDog8() {
+						var element = document.getElementById("dog_pic_8");
+						element.classList.toggle("change_dog_pic_8");
+					}
+					
+					function singleDog8() {
+						var element = document.getElementById("dog_pic_8");
+						element.classList.toggle("change_dog_pic_8");
+					}
+
+				</script>
+			
+		<h2> 9. The Transform Property: rotateY() value (rotate along Y-axis) </h2>
+			<img id="dog_pic_9" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+			
+				<button onclick="doubleDog9()"> Make me super thin </button>
+				<button onclick="singleDog9()"> Change me back </button>
+				
+				<script>
+					function doubleDog9() {
+						var element = document.getElementById("dog_pic_9");
+						element.classList.toggle("change_dog_pic_9");
+					}
+					
+					function singleDog9() {
+						var element = document.getElementById("dog_pic_9");
+						element.classList.toggle("change_dog_pic_9");
+					}
+
+				</script>
+			
+		<h2> 10. The Transform Property: rotateZ() value (skew along Z-axis)</h2>
+			<img id="dog_pic_10" src="dog_pic.png" alt="woof woof" width="100px" height="100px" >
+			<p> <a href="https://techflourish.com/categories/dog-smiling-clipart-with-hearts.html" > Image Source </a> </p>
+		
+			<button onclick="doubleDog10()"> Spin me to the left </button>
+				<button onclick="singleDog10()"> Change me back </button>
+				
+				<script>
+					function doubleDog10() {
+						var element = document.getElementById("dog_pic_10");
+						element.classList.toggle("change_dog_pic_10");
+					}
+					
+					function singleDog10() {
+						var element = document.getElementById("dog_pic_10");
+						element.classList.toggle("change_dog_pic_10");
+					}
+
+				</script>
+		
+    </body>
+	
+</html>
