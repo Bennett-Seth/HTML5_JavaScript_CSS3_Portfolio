@@ -7,81 +7,76 @@
 		</head>
 		<body>
 			
-<!-- Important. Do your OWN examples. Don't just copy and paste them from the tutorial. -->	
-
-<!-- Link to HTML5 Video Tutorial: https://www.w3schools.com/html/html5_video.asp -->
-			
-			<h1> *Video </h1>
+			<h1> Video (autoplay issues) </h1>
 			
 				<h2> Basic Video Element, with typical controls </h2>
-					<video width="320" height="240" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
+					<video id="basicVid" width="300" height="200" controls>
+						<source src="testing_testing.mp4" type="video/mp4">
+						Your browser does not support the video tag.
 					</video>
-				
+					
 				<h2> Video Element with autoplay feature </h2>
-					<video width="320" height="240" autoplay>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
+					<video id="autoVid" width="320" height="240" autoplay loop controls>
+						<source src="testing_testing.mp4" type="video/mp4">
+						Your browser does not support the video tag.
 					</video>
+					
+					<script> 
+						document.getElementById('autoVid').play(); 
+					</script> 
 
-			<h1> *Audio </h1>
+			<h1> Audio </h1>
 
-			<audio controls>
-			  <source src="horse.ogg" type="audio/ogg">
-			  <source src="horse.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
-			</audio>
-			
-<!-- Link to HTML5 Audio Tutorial: https://www.w3schools.com/html/html5_audio.asp -->
-			
+				<audio controls>
+				  <source src="Aggressive_Motorcycle.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+				</audio>
+				
 			<h1> *Canvas </h1>
 			
-				<h2> Draw a Line </h2>
+				<h2> 1. Draw a Line </h2>
 				
-					<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+					<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
-						var c = document.getElementById("myCanvas");
+						var c = document.getElementById("myCanvas1");
 						var ctx = c.getContext("2d");
 						ctx.moveTo(0,0);
 						ctx.lineTo(200,100);
 						ctx.stroke();
 						</script>
 						
-				<h2> Draw a Line </h2>
+				<h2> 2. Draw a Line </h2>
 				
-					<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+					<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
-						var c = document.getElementById("myCanvas");
+						var c = document.getElementById("myCanvas2");
 						var ctx = c.getContext("2d");
 						ctx.beginPath();
 						ctx.arc(95,50,40,0,2*Math.PI);
 						ctx.stroke();
 						</script> 
 
-				<h2> Draw a Text </h2>
-					<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+				<h2> 3. Draw a Text </h2>
+					<canvas id="myCanvas3" width="200" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
-						var c = document.getElementById("myCanvas");
+						var c = document.getElementById("myCanvas3");
 						var ctx = c.getContext("2d");
 						ctx.font = "30px Arial";
 						ctx.fillText("Hello World",10,50);
 						</script>
 				
-				<h2> Draw a Linear Gradient </h2>
-					<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+				<h2> 4. Draw a Linear Gradient </h2>
+					<canvas id="myCanvas4" width="200" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
-						var c = document.getElementById("myCanvas");
+						var c = document.getElementById("myCanvas4");
 						var ctx = c.getContext("2d");
 						// Create gradient
 						var grd = ctx.createLinearGradient(0,0,200,0);
@@ -92,12 +87,12 @@
 						ctx.fillRect(10,10,150,80);
 						</script>
 				
-				<h2> Draw a Circular Gradient </h2>
-					<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+				<h2> 5. Draw a Circular Gradient </h2>
+					<canvas id="myCanvas5" width="200" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
-						var c = document.getElementById("myCanvas");
+						var c = document.getElementById("myCanvas5");
 						var ctx = c.getContext("2d");
 
 						// Create gradient
@@ -109,28 +104,27 @@
 						ctx.fillStyle = grd;
 						ctx.fillRect(10,10,150,80);
 						</script>
-
-				<h2> Draw a Image</h2>
+<!--
+				<h2> ***6. Draw a Image</h2>
 					<p>Image to use:</p>
-					<img id="scream" src="img_the_scream.jpg" alt="The Scream" width="220" height="277">
+					<img id="cuteDog" src="dog_pic.png" alt="Cute Dog" width="100" height="100">
 
 						<p>Canvas to fill:</p>
-						<canvas id="myCanvas" width="250" height="300"
+						<canvas id="myCanvas6" width="200" height="200"
 						style="border:1px solid #d3d3d3;">
 						Your browser does not support the HTML5 canvas tag.</canvas>
 
-						<p><button onclick="myCanvas()">Try it</button></p>
+						<p><button onclick="drawDog()">Try it</button></p>
 
 							<script>
-							function myCanvas() {
-								var c = document.getElementById("myCanvas");
+							function drawDog() {
+								var c = document.getElementById("myCanvas6");
 								var ctx = c.getContext("2d");
-								var img = document.getElementById("scream");
+								var img = document.getElementById("cuteDog");
 								ctx.drawImage(img,10,10);
 							}
 							</script>
-				
-<!-- https://www.w3schools.com/html/html5_canvas.asp -->
+-->
 			
 		</body>	
 	</html>
