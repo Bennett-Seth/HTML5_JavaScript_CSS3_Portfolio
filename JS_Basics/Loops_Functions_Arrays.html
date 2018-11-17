@@ -191,7 +191,7 @@
 					document.getElementById("demo_9").innerHTML = result;
 				</script>
 
-				<p> Add an element to the Array </p>
+				<p> Add "Toyota" to the Array </p>
 				
 				<button onclick="myFunction()">Try it</button>
 
@@ -199,11 +199,19 @@
 
 					<script>
 						var cars = ["Nissan", "Porche", "Honda"];
-						document.getElementById("demo").innerHTML = fruits;
+						document.getElementById("demo").innerHTML = cars;
 
 						function myFunction() {
-							fruits.push("Toyota");
-							document.getElementById("demo_10").innerHTML = fruits;
+							cars.push("Toyota");
+							
+							var result = "";
+							var i;
+					
+							for (i = 0; i < cars.length; i++){
+								result += cars[i] + "<br>";
+							}
+							
+							document.getElementById("demo_10").innerHTML = result;
 						}
 						
 					</script>			
