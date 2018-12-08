@@ -1,0 +1,181 @@
+/* Basic Formatting */
+* {
+    max-width:480px;
+        
+} 
+
+body{
+    background-color: darkseagreen;
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Lithos Pro Regular', sans-serif;
+    text-align: left;
+    padding-left: 12px;
+}   
+		
+h1 {
+    font-size: 2em;
+}
+			
+h2 {
+    font-size: 1.5em;
+}
+			
+h3 {
+    font-size: 1em;
+}
+
+p {
+    padding-left: 1em;
+}
+    
+button {
+    margin-left: 1em;
+}
+
+hr{
+    color:black;
+}
+
+input {
+    margin-left: 1em;
+}
+
+textarea{
+    height: auto;
+    resize: none; 
+}
+
+/* top banner */
+	#topBanner {
+		display:flex;
+		flex-wrap:nowrap;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		
+		background-color: blue;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+	
+/* main menu */
+		
+    .hamburger {
+		left: 0;
+    }
+	
+	.filler {
+        color: darkseagreen;
+	}
+	
+	.hamNav { 
+        list-style: none; 
+        padding-left: 0;
+		display:none;
+       }
+    
+	.hamNav.responsive {
+        display: flex;
+        flex-direction: column;
+	}
+	
+	.hamNav.responsive li {
+        width: 100%;
+        margin-left:auto;
+        font-size: 1em;
+        font-family: sans-serif;
+        color: darkseagreen;
+        padding-top: 0.5em;
+
+    }
+       
+	.hamNav.responsive li a {
+		text-align: center;
+        text-decoration:none;
+	}	
+	
+    .hamNav.responsive li a:hover {
+       
+    }
+       
+    .hamNav.responsive li.active a{
+ 
+    }
+
+/* fantasy menu */
+
+.fantasyMain.responsive {
+    display:none;
+}
+
+/* author menu */
+
+	.writerButton {
+		float:right;
+	}
+
+    .authorNav {	
+		padding-top: 1em;
+		right: 0;
+		clear:right;
+        list-style: none; 
+        padding-left: 0;
+		display:none;
+    }
+    
+	.authorNav.responsive {
+        display: flex;
+        flex-direction: column;
+	}
+	
+	.authorNav.responsive li {
+        width: 100%;
+        margin:auto;
+        font-size: 1em;
+		margin-right: 0;
+        font-family: sans-serif;
+        color: darkseagreen;
+        padding-top: 0.5em;
+    }
+       
+	.authorNav.responsive li a {
+		text-align: center;
+        text-decoration:none;
+	}	
+	
+    .authorNav.responsive li a:hover {
+       
+    }
+       
+    .authorNav.responsive li.active a{
+ 
+    }
+
+
+/* footer menu */
+
+    #footerMenu{
+        display:flex;
+        flex-wrap:nowrap;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		background-color: darkgray;
+		top: 0;
+		width: 100%;
+}
+
+.footNav {
+    list-style: none; 
+    padding-left: 0;
+
+}
+
+
+
