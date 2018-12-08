@@ -2,31 +2,29 @@
 	<html lang="en-us">
 		<head>
 			<meta charset="utf-8">
-			<title> Writing Application </title>
+			<title> Fantasy Writing Application </title>
 			
-			<script type="text/javascript">
-			
-			
-			
-			</script>
-			
-			<style>
-			
-			
-			</style>
-			
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="fantasy_main.css">
+        <script src="fantasy.js"></script>
+        <!-- <body onload="loadAll()"> -->
+        <!-- <body onunload="saveAll()"> -->
+            
 		</head>
 		<body>
+			<!--
 			<p> Challenges </p>
 				<p> https://www.youtube.com/watch?v=UAu7cMuu0BI </p>
 			
 			<p> Ideas </p>
 				<p> List of possible API sources: https://www.computersciencezone.org/50-most-useful-apis-for-developers/ </p>
 				<p> Perhaps the writer can post to social media from within the writing app? </p>
+			
 			<div id="login"> 
-				
 				<h1> Login Below </h1> 
-					<!-- This will need to compare a stored list of users and passwords -->
+					<p> This will need to compare a stored list of users and passwords </p>
 					<form id="loginForm action="/action_page.php">
 					  Username:<br>
 					  <input type="text" name="userName" value="Example11">
@@ -56,171 +54,204 @@
 					  <input type="submit" value="Submit">
 					</form>
 			</div>
-			
+			-->
+			<div id="topBanner">
+				<nav id="hamburgerMenu">
+					<button type="button" class="hamburger" onclick="HamburgerNav()">
+						<img src="hamburger_icon.png" alt="hamburger icon" height="40" width="40"> 
+					</button>
+						<ul class="hamNav" id="mainmenu">
+							<li> Logout / Login </li>
+							<li> Save Progress </li>
+								<!-- Easier to save specific pages, vs all files at once...-->
+								<!-- Include warnings to potentially loosing unsaved data -->
+								<!-- Auto save upon exit? -->
+							<li> Rename File </li>
+                            <li> Delete File </li>
+							<li> Export File  </li>
+						</ul>
+				</nav>
+				
+				<div class="filler">
+                    <h2> Create Your Own World </h2>
+                </div>
+				
+				<div id="authorTools"> 
+					<button type="button" class="writerButton" onclick="authorNav()">
+						<img id="writerRef" src="Editing-Icon.png" alt="edit icon" height="40" width="40"> 
+					</button>
+						<ul class="authorNav" id="mainmenu">
+							<li> Current Project  </li>
+								<!-- Categorized for easy reference -->
+								<!-- Contains modified templates of Fantasy and Sci-Fi designs -->
+							<li> Related Template</li>
+							<li> Related Template </li>
+							<li> Related Template </li>
+						</ul>
+				</div>
 			</div>
 			
-			<div id="hamburgerMenu"> 
-				<h1> Logout / Login </h1> 
-				<h1> Save Progress </h1>
-					<!-- Easier to save specific pages, vs all files at once...-->
-					<!-- Include warnings to potentially loosing unsaved data -->
-					<!-- Auto save upon exit? -->
-				<h1> Rename File </h1> 
-				<h1> Export File (email address required) </h1> 
-			
-			</div>
-			
-			<div id="authorTools"> 
-				<!-- Categorized for easy reference -->
-				<h1> Current Project </h1> 
-					<!-- Contains modified templates of Fantasy and Sci-Fi designs -->
-			
-			</div>
-			
+            <br>
+            
 			<div id="mainPage"> 
 				<h1> Main Page </h1> 
-					<h2> Project List </h2>
+					<h2> Current Projects </h2>
 						<p> List them below </p>
 						<p> Put the most recent files, first </p>
-					<h2> Start a New Project </h2>
-						<!-- Select from a range of templates -->
-						<h3> Fantasy Template (import) </h3>
-						<h3> Sci-Fi Template (import) </h3>
-						<h3> Personal Notes (catagorized) </h3>
-			
-			<div id="fantasyTemplate"> 
-				<h1> Fantasy Template (rename) </h1> 
-					<h2> World Building </h2>
-						<h3> Geography </h3>
-						<h3> Magic System(s) </h3>
-							<p> Add New Magic System </p>
-						<h3> Organizations </h3>
-							<p> Add New Organization Template </p>
-					<h2> Character(s) </h2>
-						<p> Add New Character Template </p>
+					<h2> New Project </h2>
+                        <h3> Fantasy Template (import) </h3>
+                <!--       
+                <button onclick="newFantasy()"> Start a new story. </button>
+                -->
+					       <p id="storyStart"> </p>
+                
+				        <h3> Personal Notes (catagorized) </h3>
 			</div>
 			
-			<div id="sciFiTemplate"> 
-				<h1> Sci-Fi Template (rename) </h1> 
-					<h2> Universe Building </h2>
-						<h3> Space Ports </h3>
-						<h3> Planets </h3>
-						<h3> Space Anomalies </h3>
-						<h3> Technologies</h3>
-							<p> Add New Technology </p>
-						<h3> Organizations </h3>
-							<p> Add New Organization Template </p>
-					<h2> Character(s) </h2>
-						<p> Add New Character Template </p>
-						<!-- Slightly Alternate Design based on Sci-Fi or Fantasy situation -->
-			</div>
+            <button onclick="hideFantasy() "> Hide / Reveal Fantasy Text </button>
+			<div class="fantasyMain">
+                
+                <div id="fantasyTemplate"> 
+                    <h1> Fantasy Template (rename) </h1> 
+                        <h2> World Building </h2>
+                            <h3> Geography </h3>
+                            <h3> Magic System(s) </h3>
+                                <p> Add New Magic System </p>
+                            <h3> Organizations </h3>
+                                <p> Add New Organization Template </p>
+                        <h2> Character(s) </h2>
+                            <p> Add New Character Template </p>
+                </div>
+
 			
-			<div id="characterTemplate"> 
-				<h1> Name (rename) </h1> 
-					<h2> Appearance </h2>
-						<h3> Eye Color </h3>
-						<h3> Hair Color </h3>
-						<h3> Gender </h3>
-						<h3> Ethnicity </h3>
-						<h3> Race / Species </h3>
-						<h3> Physical Build </h3>
-						<h3> Distinguished Features (like scars) </h3>
-					<h2> Personality </h2>
-						<h3> Wants </h3>
-						<h3> Fears </h3>
-					<h2> Sketch (optional download) </h2>
-						<!-- Use AJAX to support a variety of free images to select for your character? -->
-					<h2> Background </h2>
-						<h3> Childhood </h3>
-						<h3> Adolesence </h3>
-						<h3> Adulthood </h3>
-					<h2> Skills and Education </h2>
-						<h3> Combat Skills </h3>
-						<h3> Social Skills </h3>
-						<h3> Technical Skills </h3>
-						<h3> Special Abilities </h3>
-			</div>
+                <div id="characterTemplate" class="fantasyMain"> 
+                    <h2> Name (rename) </h2> 
+                        <h3> Appearance </h3>
+                            <h4> Eye Color </h4>
+                            <h4> Hair Color </h4>
+                            <h4> Gender </h4>
+                            <h4> Ethnicity </h4>
+                            <h4> Race / Species </h4>
+                            <h4> Physical Build </h4>
+                            <h4> Distinguished Features (like scars) </h4>
+                        <h3> Personality </h3>
+                            <h4> Wants </h4>
+                            <h4> Fears </h4>
+                        <h3> Sketch (optional download) </h3>
+                            <!-- Use AJAX to support a variety of free images to select for your character? -->
+                        <h3> Background </h3>
+                            <h4> Childhood </h4>
+                            <h4> Adolesence </h4>
+                            <h4> Adulthood </h4>
+                        <h3> Skills and Education </h3>
+                            <h4> Combat Skills </h4>
+                            <h4> Social Skills </h4>
+                            <h4> Technical Skills </h4>
+                            <h4> Special Abilities </h4>
+                </div>
 			
-			<div  id="org"> 
-			<h1> Organizations (rename) </h1> 
-				<h2> Background </h2>
-				<h2> Motivations </h2>
-				<h2> Goals </h2>
-				<h2> Rules for Entry </h2>
-				<h2> Consequences for Departure </h2>
-				<h2> Leadership Structure </h2>
-			
-			</div>
-			
-			<div  id="magSys"> 
-				<h1> Magical System (rename) </h1> 
-					<h2> Overview </h2>
-					<h2> Capabilities </h2>
-					<h2> Limitations </h2>
-					<h2> Costs of Use </h2>
-					<h2> Weaknesses </h2>
-			</div>
-			
-			<div  id="techSys"> 
-				<h1> New Technology (rename) </h1> 
-					<h2> Overview </h2>
-					<h2> Capabilities </h2>
-					<h2> Limitations </h2>
-					<h2> Costs of Use </h2>
-					<h2> Weaknesses </h2>
-			</div>
-			
-			<div id="planets"> 
-			<h1> New Planet (Rename) </h1> 
-				<h2> Cities </h2>
-				<h2> Landmarks </h2>
-				<h2> Natural Resources </h2>
-			</div>
-			
-			<div id="spacePorts"> 
-				<h1> Space Ports (rename) </h1> 
-					<h2> Allegiance </h2>
-					<h2> Trade </h2>
-					<h2> Leadership </h2>
-					<h2> Local Organizations </h2>
-			</div>
-			
-			<div id="geography"> 
-				<h1> World Geography (rename) </h1> 
-					<!-- Add in a map uploading option? -->
-					<h2> Cities  </h2>
-					<h2> Rivers </h2>
-					<h2> Landmarks </h2>
-					<h2> Mountain Ranges </h2>
-					<h2> Deserts </h2>
-			</div>
+                <div  id="org" class="fantasyMain"> 
+                    <h2> Organizations (rename) </h2> 
+                        <h3> Background </h3>
+                        <h3> Motivations </h3>
+                        <h3> Goals </h3>
+                        <h3> Rules for Entry </h3>
+                        <h3> Consequences for Departure </h3>
+                        <h3> Leadership Structure </h3>
+                </div>
+
+                <div  id="magSys" class="fantasyMain"> 
+                    <h2> Magical System (rename) </h2> 
+                        <h3> Overview </h3>
+                        <h3> Capabilities </h3>
+                        <h3> Limitations </h3>
+                        <h3> Costs of Use </h3>
+                        <h3> Weaknesses </h3>
+                </div>
+
+                <div id="geography" class="fantasyMain"> 
+                    <h2> World Geography (rename) </h2> 
+                        <!-- Add in a map uploading option? -->
+                        <h3> Cities  </h3>
+                        <h3> Rivers </h3>
+                        <h3> Landmarks </h3>
+                        <h3> Mountain Ranges </h3>
+                        <h3> Deserts </h3>
+                </div>
+
+                <div id="cities" class="fantasyMain"> 
+                    <h2> New City (rename) </h2> 
+                        <h3> Allegiance </h3>
+                        <h3> Trade </h3>
+                        <h3> Leadership </h3>
+                        <h3> Local Organizations </h3>
+                </div>
+            </div>
 			
 			<div id="personalNotes"> 
 				<!-- Categorized for easy reference -->
-				<h1> Notes </h1> 
-					<h2> Add new Entry </h2>
-			</div>
+				<h1> Personal Notes </h1> 
+                
+                <div id="test1"></div>
+                <button onclick="saveNotes()"> Save Notes Test (via printing) </button>
+               
+				    
+					<h2> Add a new Entry Below </h2>
+                        <h3> Title: <input type="text" id="noteTitle" class="newEntry"></h3>
+                    <!-- Don't forget to build a JS fuction to organically grow the number of rows in the text area-->    
+                    <h3> Note: <textarea id="textArea" rows="5" cols="50" width="100%" height="auto" class="textarea"> </textarea></h3>
+                
+                        <button onclick="printNote()"> Save </button>
+                
+                    <hr>
+                
+            <!--
+                <button onclick="newNote()"> Start a personal note </button>
+                        <p id="noteStart"> </p>
+            -->
+                
+                    <h2> List of Entries </h2>
+                        <!-- This would be easier if I implemented a "new note" Icon... -->
+                            <div id="noteList">
+                            </div>
+               
 			
-			<div id="cities"> 
-				<h1> New City (rename) </h1> 
-					<h2> Allegiance </h2>
-					<h2> Trade </h2>
-					<h2> Leadership </h2>
-					<h2> Local Organizations </h2>
-			</div>
-			
+            </div>
+			 
+            <button onclick="clearAll()"> Clear All Local Storage</button>
+            
+            <br>
+            <br>
+            <br>
+           
+            <button onclick="printAll()"> Print All Local Storage</button>
+            
+                <div id="JSONPrint">
+                            </div>
+            
+            <div id="containAll"> </div>
+   
 			<div> 
 			<h1>  </h1> 
 			
 			</div>
 			
-			<div> 
-			<h1>  </h1> 
-			
-			</div>
-			
-		
-		
+            <hr>
+            
+			<footer>
+                <nav id="footerMenu">
+				    <ul class="footNav" id="footMenu">
+				        <li> Logout / Login </li>
+				        <li> Save Progress </li>
+								<!-- Easier to save specific pages, vs all files at once...-->
+								<!-- Include warnings to potentially loosing unsaved data -->
+								<!-- Auto save upon exit? -->
+				        <li> Rename File </li>
+                        <li> Delete File </li>
+						<li> Export File  </li>
+				    </ul>
+				</nav>
+			</footer>
 	
 		</body>	
 	</html>
