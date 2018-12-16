@@ -8,66 +8,25 @@
 	    
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="fantasy_main.css">
-        <script src="fantasy.js"></script>
-        <!-- <body onload="loadAll()"> -->
-        <!-- <body onunload="saveAll()"> -->
-            
+        <script src="fantasy.js"></script>    
+        
+            <!-- <body onload="loadAll()"> -->
+            <!-- <body onunload="saveAll()"> -->
 		</head>
-		<body>
-			<!--
-			<p> Challenges </p>
-				<p> https://www.youtube.com/watch?v=UAu7cMuu0BI </p>
-			
-			<p> Ideas </p>
-				<p> List of possible API sources: https://www.computersciencezone.org/50-most-useful-apis-for-developers/ </p>
-				<p> Perhaps the writer can post to social media from within the writing app? </p>
-			
-			<div id="login"> 
-				<h1> Login Below </h1> 
-					<p> This will need to compare a stored list of users and passwords </p>
-					<form id="loginForm action="/action_page.php">
-					  Username:<br>
-					  <input type="text" name="userName" value="Example11">
-					  <br>
-					  Password:<br>
-					  <input type="text" name="password" value="$triker716!">
-					  <br><br>
-					  <input type="submit" value="Submit">
-					</form>
-			</div>
-			
-			<div id="newUser"> 
-				<h1> New to our app? Start an account below. </h1> 
-					<form id="loginForm action="/action_page.php">
-					  Username:<br>
-					  <input type="text" name="userName" value="Example11">
-					  <br>
-					  Email Address:<br>
-					  <input type="email" name="emailAddress" value="smartMan@gmail.com">
-					  <br>
-					  Password:<br>
-					  <input type="text" name="password" value="$triker716!">
-					  <br>
-					  Verfiy Password:<br>
-					  <input type="text" name="password" value="$triker716!">
-					  <br><br>
-					  <input type="submit" value="Submit">
-					</form>
-			</div>
-			-->
+		<body onload="displayTitle(); displayChar(); displayOrg(); displayMag(); displayGeo();">
+           
+    <!-- Top Banner -->        
+            
 			<div id="topBanner">
 				<nav id="hamburgerMenu">
 					<button type="button" class="hamburger" onclick="HamburgerNav()">
 						<img src="hamburger_icon.png" alt="hamburger icon" height="40" width="40"> 
 					</button>
 						<ul class="hamNav" id="mainmenu">
-							<li> Logout / Login </li>
 							<li> Save Progress </li>
 								<!-- Easier to save specific pages, vs all files at once...-->
 								<!-- Include warnings to potentially loosing unsaved data -->
 								<!-- Auto save upon exit? -->
-							<li> Rename File </li>
-                            <li> Delete File </li>
 							<li> Export File  </li>
 						</ul>
 				</nav>
@@ -81,143 +40,215 @@
 						<img id="writerRef" src="Editing-Icon.png" alt="edit icon" height="40" width="40"> 
 					</button>
 						<ul class="authorNav" id="mainmenu">
-							<li> Current Project  </li>
-								<!-- Categorized for easy reference -->
-								<!-- Contains modified templates of Fantasy and Sci-Fi designs -->
-							<li> Related Template</li>
-							<li> Related Template </li>
-							<li> Related Template </li>
+							<li><a href="#fantasyTemplate">Title</a></li>
+							<li><a href="#fantasyTemplate">Characters</a>  </li>
+							<li><a href="#characterTemplate">Organizations</a>  </li>
+                            <li><a href="#magSys">Magic</a>  </li>
+                            <li><a href="#geography">Geography</a>  </li>
 						</ul>
 				</div>
 			</div>
-			
-            <br>
-            
-			<div id="mainPage"> 
-				<h1> Main Page </h1> 
-					<h2> Current Projects </h2>
-						<p> List them below </p>
-						<p> Put the most recent files, first </p>
-					<h2> New Project </h2>
-                        <h3> Fantasy Template (import) </h3>
-                <!--       
-                <button onclick="newFantasy()"> Start a new story. </button>
-                -->
-					       <p id="storyStart"> </p>
-                
-				        <h3> Personal Notes (catagorized) </h3>
-			</div>
-			
-            <button onclick="hideFantasy() "> Hide / Reveal Fantasy Text </button>
-			<div class="fantasyMain">
-                
-                <div id="fantasyTemplate"> 
-                    <h1> Fantasy Template (rename) </h1> 
-                        <h2> World Building </h2>
-                            <h3> Geography </h3>
-                            <h3> Magic System(s) </h3>
-                                <p> Add New Magic System </p>
-                            <h3> Organizations </h3>
-                                <p> Add New Organization Template </p>
-                        <h2> Character(s) </h2>
-                            <p> Add New Character Template </p>
-                </div>
 
-			
-                <div id="characterTemplate" class="fantasyMain"> 
-                    <h2> Name (rename) </h2> 
-                        <h3> Appearance </h3>
-                            <h4> Eye Color </h4>
-                            <h4> Hair Color </h4>
-                            <h4> Gender </h4>
-                            <h4> Ethnicity </h4>
-                            <h4> Race / Species </h4>
-                            <h4> Physical Build </h4>
-                            <h4> Distinguished Features (like scars) </h4>
-                        <h3> Personality </h3>
-                            <h4> Wants </h4>
-                            <h4> Fears </h4>
-                        <h3> Sketch (optional download) </h3>
-                            <!-- Use AJAX to support a variety of free images to select for your character? -->
-                        <h3> Background </h3>
-                            <h4> Childhood </h4>
-                            <h4> Adolesence </h4>
-                            <h4> Adulthood </h4>
-                        <h3> Skills and Education </h3>
-                            <h4> Combat Skills </h4>
-                            <h4> Social Skills </h4>
-                            <h4> Technical Skills </h4>
-                            <h4> Special Abilities </h4>
-                </div>
-			
-                <div  id="org" class="fantasyMain"> 
-                    <h2> Organizations (rename) </h2> 
-                        <h3> Background </h3>
-                        <h3> Motivations </h3>
-                        <h3> Goals </h3>
-                        <h3> Rules for Entry </h3>
-                        <h3> Consequences for Departure </h3>
-                        <h3> Leadership Structure </h3>
-                </div>
-
-                <div  id="magSys" class="fantasyMain"> 
-                    <h2> Magical System (rename) </h2> 
-                        <h3> Overview </h3>
-                        <h3> Capabilities </h3>
-                        <h3> Limitations </h3>
-                        <h3> Costs of Use </h3>
-                        <h3> Weaknesses </h3>
-                </div>
-
-                <div id="geography" class="fantasyMain"> 
-                    <h2> World Geography (rename) </h2> 
-                        <!-- Add in a map uploading option? -->
-                        <h3> Cities  </h3>
-                        <h3> Rivers </h3>
-                        <h3> Landmarks </h3>
-                        <h3> Mountain Ranges </h3>
-                        <h3> Deserts </h3>
-                </div>
-
-                <div id="cities" class="fantasyMain"> 
-                    <h2> New City (rename) </h2> 
-                        <h3> Allegiance </h3>
-                        <h3> Trade </h3>
-                        <h3> Leadership </h3>
-                        <h3> Local Organizations </h3>
-                </div>
-            </div>
-			
-			<div id="personalNotes"> 
-				<!-- Categorized for easy reference -->
-				<h1> Personal Notes </h1> 
-                
-                <div id="test1"></div>
-                <button onclick="saveNotes()"> Save Notes Test (via printing) </button>
-               
-				    
-					<h2> Add a new Entry Below </h2>
-                        <h3> Title: <input type="text" id="noteTitle" class="newEntry"></h3>
-                    <!-- Don't forget to build a JS fuction to organically grow the number of rows in the text area-->    
-                    <h3> Note: <textarea id="textArea" rows="5" cols="50" width="100%" height="auto" class="textarea"> </textarea></h3>
-                
-                        <button onclick="printNote()"> Save </button>
-                
+    <!-- Fantasy Page -->
+  
+            <button type="button" id="titleImg" class="arrow_down" onclick="hideMain()">
+				<img src="arrow_down.png"  alt="arrow icon" height="40" width="40"> 
+            </button>
+                <h2 id="displayTitle"> Story Summary </h2> 
+                <div id="fantasyTemplate" class="fantasyMain">
+                    <h3> Change/Add Story Title <input type="text" value="Add your title here." name="storyTitle" width="200px" id="storyTitle" onfocus="focusBg(this)" onblur="blurBg(this)" > </h3> 
+                    
+                    <button type="button" id="titleSub" class="saveButton"  onclick="addTitle()" > Save Title
+                    </button>
+                    <br>
+             <!--  
+                    <button type="button" id="titleDis" class="saveButton"  onclick="displayTitle()"> Display Title
+                    </button>
+              -->
+                    <button type="button" id="titleDel" class="saveButton"  onclick="delTitle()"> Delete Title
+                    </button>
+                    
                     <hr>
-                
-            <!--
-                <button onclick="newNote()"> Start a personal note </button>
-                        <p id="noteStart"> </p>
-            -->
-                
-                    <h2> List of Entries </h2>
-                        <!-- This would be easier if I implemented a "new note" Icon... -->
-                            <div id="noteList">
-                            </div>
+                  <div id="sum">  
+                    <h3 id="sumIntro"> </h3>
+                      <h3 id="sumName"> </h3>
+                    <h3 id="sumOrg"> </h3>
+                    <h3 id="sumMag"> </h3>
+                    <h3 id="sumGeo"> </h3>
+                  </div>      
+                   <!-- <div id="testTitle"> </div> -->
+            <br>
+                <button type="button" id="charImg" class="arrow_down" onclick="hideChar()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+                 <h2> Main Character </h2>
+                <div id="characterTemplate" class="fantasyChar">     
+                    
+                    <h2 id="postName"> Name: </h2>
+                        <input type="text"  name="charName" width="200px" id="charName" onfocus="focusBg(this)" onblur="blurBg(this)">
+                    
+                    <h3 id="charIntro"> </h3>
+                    
+                    <h3> Appearance </h3>
+                            <h4 id="postEye"> Eye Color </h4>
+                                <input type="text" name="title" width="100px" id="charEye" onfocus="focusBg(this)" onblur="blurBg(this)">
+                            <h4 id="postHair"> Hair Color </h4>
+                                <input type="text" name="hair" width="100px" id="charHair" onfocus="focusBg(this)" onblur="blurBg(this)">
+                            <h4 id="postGen"> Gender </h4>
+                                <input type="text" name="gender" width="100px" id="charGender" onfocus="focusBg(this)" onblur="blurBg(this)" >
+                            <h4 id="postEth"> Ethnicity </h4>
+                                <input type="text" name="ethnicity" width="100px" id="charEthnicity" onfocus="focusBg(this)" onblur="blurBg(this)">
+                            <h4 id="postRace"> Race / Species </h4>
+                                <input type="text" name="race" width="100px" id="charRace"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                            <h4 id="postBuild"> Physical Build </h4>
+                                <input type="text" name="build" width="100px" id="charBuild"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                            <h4 id="postFeat"> Distinguished Features (like scars) </h4>
+                                <input type="text" name="features" width="100px" id="charFeat"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                    <h3> Personality </h3>
+                        <h4 id="postWant"> What does your character Want? </h4>
+                            <input type="text" name="charWant" width="300px" id="charWant" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                        <h4 id="postFear"> What does your character Fear? </h4>
+                            <input type="text" name="charFear" width="300px" id="charFear" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                    <h3> Background </h3>
+                        <h4 id="postChild"> Childhood </h4>
+                            <input type="text" name="charChild" width="300px" id="charChild" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                        <h4 id="postAdol"> Adolesence </h4>
+                            <input type="text" name="charAdol" width="300px" id="charAdol" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                        <h4 id="postAdult"> Adulthood </h4>
+                            <input type="text" name="charAdult" width="300px" id="charAdult" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                <br>
+                    <button type="button" id="charSub" class="saveButton"  onclick="addChar()"> Save Character
+                    </button> 
+                     <br>
+                <!--    
+                    <button type="button" id="charDis" class="saveButton"  onclick="displayChar()"> Display Character
+                    </button> 
+                 -->   
+                    <button type="button" id="deleteChar" class="saveButton"  onclick="deleteChar()"> Delete Character
+                    </button> 
+                   
+                    <div id=charTest1> </div>
+                    <div id=charTest2> </div>
+                    <div id=charTest3> </div>
+                    <div id=charTest4> </div>
                
-			
+                    <hr>
             </div>
-			 
+
+			<br>
+                 <button type="button" class="arrow_down" id="orgImg" onclick="hideOrg()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+            
+                <h2> Organization</h2> 
+            
+                <div  id="org" class="fantasyOrg"> 
+                    
+                        <h3 id="orgName"> Name </h3>
+                            <input type="text" name="orgName" width="100px" id="inName"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="orgBg"> Background </h3> 
+                            <input type="text" name="orgBg" width="100px" id="inBg"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="orgMotiv"> Motivations </h3>
+                            <input type="text" name="orgMotiv" width="100px" id="inMotiv"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="orgGoal"> Goals </h3>
+                            <input type="text" name="orgGoal" width="100px" id="inGoal"  onfocus="focusBg(this)" onblur="blurBg(this)"> 
+                        <h3 id="orgRule"> Rules for Entry </h3>
+                            <input type="text" name="orgRule" width="100px" id="inRule"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="orgFire"> Consequences for Departure </h3>
+                            <input type="text" name="orgFire" width="100px" id="inFire"  onfocus="focusBg(this)" onblur="blurBg(this)"> 
+                        <h3 id="orgLead"> Leadership Structure </h3>
+                            <input type="text" name="orgLead" width="100px" id="inLead"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                   <br> 
+                        <button type="button" id="orgSub" class="saveButton"  onclick="addOrg()"> Save Organization
+                    </button> 
+                    
+                    <br>
+               <!--     
+                    <button type="button" id="orgDis" class="saveButton"  onclick="displayOrg()"> Display Organization
+                    </button>
+                -->
+                     <br>
+                    <button type="button" id="orgDel" class="saveButton"  onclick="deleteOrg()"> Delete Organization
+                    </button>
+                    
+                        <div id="orgTest"> </div>
+                </div>
+            <br>    
+                <button type="button" class="arrow_down" id="magImg" onclick="hideMag()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+                <h2> Magic</h2> 
+                <div  id="magSys" class="fantasyMag"> 
+                    <h3 id="magName"> Name </h3>
+                        <input type="text" name="magName" width="100px" id="inMagName"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        
+                    <h3 id="postOver"> Overview </h3>
+                        <input type="text" name="magOver" width="100px" id="inMagOver"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        
+                    <h3 id="postCap"> Capabilities </h3>
+                        <input type="text" name="magCap" width="100px" id="inMagCap" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                        
+                    <h3 id="postLim"> Limitations </h3>
+                        <input type="text" name="magLim" width="100px" id="inMagLim" onfocus="focusBg(this)"  onblur="blurBg(this)">
+                        
+                    <h3 id="postCost"> Costs of Use </h3>
+                        <input type="text" name="magCost" width="100px" id="inMagCost"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        
+                    <h3 id="postWeak"> Weaknesses </h3>
+                        <input type="text" name="magWeak" width="100px" id="inMagWeak" onfocus="focusBg(this)"  onblur="blurBg(this)">
+              <br>      
+                     <button type="button" id="magSub" class="saveButton"  onclick="addMag()"> Save Magic
+                    </button> 
+                    
+                    <br>
+               <!--     
+                    <button type="button" id="magDis" class="saveButton"  onclick="displayMag()"> Display Magic
+                    </button>
+              -->      
+                     <br>
+                    <button type="button" id="magDel" class="saveButton"  onclick="deleteMag()"> Delete Magic
+                    </button>
+                    
+                        <div id="magTest"></div>
+                </div>
+            <br>    
+                <button type="button" id="geoImg" class="arrow_down" onclick="hideGeo()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+                <h2>Geography</h2> 
+                <div id="geography" class="fantasyGeo"> 
+                        <!-- Add in a map uploading option? -->
+                        <h3 id="postCit"> Cities</h3>
+                            <input type="text" name="inCit" width="100px" id="inCit"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="postRiv"> Rivers</h3> 
+                            <input type="text" name="inRiv" width="100px" id="inRiv"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="postLand"> Landmarks </h3>
+                            <input type="text" name="inLand" width="100px" id="inLand"  onfocus="focusBg(this)" onblur="blurBg(this)"> 
+                        <h3 id="postMount"> Mountain Ranges </h3>
+                            <input type="text" name="inMount" width="100px" id="inMount"  onfocus="focusBg(this)" onblur="blurBg(this)">
+                        <h3 id="postDes"> Deserts </h3>
+                            <input type="text" name="inDes" width="100px" id="inDes"  onfocus="focusBg(this)" onblur="blurBg(this)">
+              <br>  
+                     <button type="button" id="geoSub" class="saveButton"  onclick="addGeo()"> Save Geography
+                    </button> 
+                    
+                    <br>
+                  <!--  
+                    <button type="button" id="geoDis" class="saveButton"  onclick="displayGeo()"> Display Geography
+                    </button> 
+                 -->   
+                     <br>
+                    
+                    <button type="button" id="geoDel" class="saveButton"  onclick="deleteGeo()"> Delete Geography
+                    </button>
+                    
+                        <div id="geoTest"> </div>
+ 
+                    </div>
+            <br>
+                
+        </div>
+            
             <button onclick="clearAll()"> Clear All Local Storage</button>
             
             <br>
@@ -241,7 +272,6 @@
 			<footer>
                 <nav id="footerMenu">
 				    <ul class="footNav" id="footMenu">
-				        <li> Logout / Login </li>
 				        <li> Save Progress </li>
 								<!-- Easier to save specific pages, vs all files at once...-->
 								<!-- Include warnings to potentially loosing unsaved data -->
