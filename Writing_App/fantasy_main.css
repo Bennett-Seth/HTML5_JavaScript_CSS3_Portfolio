@@ -9,6 +9,7 @@ body{
     font-family: 'Times New Roman', serif;
     font-size: 16px;
     text-align: left;
+    padding-top: 75px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23,26 +24,43 @@ h1 {
 			
 h2 {
     font-size: 1.5em;
+    
 }
 			
 h3 {
-    font-size: 1em;
+    font-size: 1.25em;
+    clear: left;
+}
+
+h4 {
+     font-size: 1em;
 }
 
 p {
     padding-left: 1em;
 }
-    
+
+div {
+   clear: left; 
+}
+
 button {
-    margin-left: 1em;
+    margin-left: 0em;
 }
 
 hr{
     color:black;
 }
 
+.inTextLink {
+    text-decoration:none;
+    color:navy;
+    
+}
+
 input {
     margin-left: 1em;
+    width: 400px;
 }
 
 textarea{
@@ -51,6 +69,7 @@ textarea{
 }
 
 /* top banner */
+
 	#topBanner {
 		display:flex;
 		flex-wrap:nowrap;
@@ -58,20 +77,21 @@ textarea{
 		justify-content: space-between;
 		align-items: flex-start;
 		
-		background-color: blue;
+		background-color: cornflowerblue;
 		position: fixed;
 		top: 0;
 		width: 100%;
+        z-index:1000;
 	}
 	
 /* main menu */
 		
     .hamburger {
-		left: 0;
+		margin-left: 0em;
     }
 	
 	.filler {
-        color: darkseagreen;
+        color: black;
 	}
 	
 	.hamNav { 
@@ -90,29 +110,28 @@ textarea{
         margin-left:auto;
         font-size: 1em;
         font-family: sans-serif;
-        color: darkseagreen;
         padding-top: 0.5em;
+        text-align: left;
 
     }
        
 	.hamNav.responsive li a {
 		text-align: center;
         text-decoration:none;
+        color: darkblue;
+        transition: 1s;
 	}	
 	
     .hamNav.responsive li a:hover {
-       
+       font-size: 1.5em;
+        text-decoration: underline;
+        color: aqua;
     }
        
     .hamNav.responsive li.active a{
  
     }
 
-/* fantasy menu */
-
-.fantasyMain.responsive {
-    display:none;
-}
 
 /* author menu */
 
@@ -140,22 +159,202 @@ textarea{
         font-size: 1em;
 		margin-right: 0;
         font-family: sans-serif;
-        color: darkseagreen;
         padding-top: 0.5em;
+        text-align: right;
     }
        
 	.authorNav.responsive li a {
-		text-align: center;
         text-decoration:none;
+        color: darkblue;
+        transition: 1s;
 	}	
 	
     .authorNav.responsive li a:hover {
-       
+        font-size: 1.5em;
+        text-decoration: underline;
+        color: aqua;
     }
        
     .authorNav.responsive li.active a{
  
     }
+
+
+/* fantasy menu */
+
+.arrow_down {
+    float:left;
+    background-color:darkgreen;
+	margin-left: 1em;
+}
+
+.spin {
+    transform: rotate(180deg);
+    animation-name: spinOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes spinOpen {
+			0%   {transform:rotate(0deg);}
+			33%  {transform:rotate(60deg);}
+			66%  {transform:rotate(120deg);}
+			100% {transform:rotate(180deg);}
+}
+
+.fantasyMain {
+    display:none;
+}
+
+.saveButton{
+    margin-left:1em;
+    background-color: darkgreen;
+    color:palegreen;
+    position: relative;
+}
+
+.slideButton{
+    animation-name: screenSlide;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes screenSlide {
+			0%   {left:0px;}
+			25%  {left:100px;}
+			50%  {left:200px;}
+			75%  {left:100px;}
+			100% {left:0px;}
+		}
+
+.fantasyMain.responsive {
+    display: block;
+    animation-name: titleOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes titleOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+}
+
+.fantasyChar{
+    display:none;
+}
+
+.fantasyChar.responsive {
+    display: block;
+    animation-name: charOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes charOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+		}
+
+.fantasyOrg {
+    display:none;
+}
+
+.fantasyOrg.responsive {
+    display: block;
+    animation-name: orgOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes orgOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+		}
+
+.fantasyMag{
+    display:none;
+}
+
+.fantasyMag.responsive {
+    display: block;
+    animation-name: magOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes magOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+		}
+
+.fantasyGeo{
+    display:none;
+}
+
+.fantasyGeo.responsive {
+    display: block;
+    animation-name: geoOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes geoOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+}
+
+.fantasyCities{
+    display:none;
+}
+
+.fantasyCities.responsive {
+    display: block;
+    animation-name: cityOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes cityOpen {
+			0%   {background-color: black;}
+			33%  {background-color: darkgreen;}
+			66%  {background-color: darkolivegreen;}
+			100% {background-color: darkseagreen;}
+		}
+
+#charImg {
+    margin-left: 2em;
+}
+
+#orgImg {
+    margin-left: 2em;
+}
+
+#magImg {
+    margin-left: 2em;
+}
+
+#geoImg {
+    margin-left: 2em;
+}
+
+#titleSub {
+    margin-left: 2em; 
+}
 
 
 /* footer menu */
@@ -176,6 +375,7 @@ textarea{
     padding-left: 0;
 
 }
+
 
 
 
