@@ -9,25 +9,20 @@
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="fantasy_main.css">
         <script src="fantasy.js"></script>    
-        
-            <!-- <body onload="loadAll()"> -->
-            <!-- <body onunload="saveAll()"> -->
+
 		</head>
-		<body onload="displayTitle(); displayChar(); displayOrg(); displayMag(); displayGeo();">
+		<body onload="displayTitle(); displayChar(); displayOrg(); displayMag(); displayGeo(); displayNotes(); introUser();">
            
     <!-- Top Banner -->        
             
 			<div id="topBanner">
 				<nav id="hamburgerMenu">
-					<button type="button" class="hamburger" onclick="HamburgerNav()">
+					<button type="button" class="hamburger" onclick="HamburgerNav()" ontouchstart="HamburgerNav()">
 						<img src="hamburger_icon.png" alt="hamburger icon" height="40" width="40"> 
 					</button>
 						<ul class="hamNav" id="mainmenu">
-							<li> Save Progress </li>
-								<!-- Easier to save specific pages, vs all files at once...-->
-								<!-- Include warnings to potentially loosing unsaved data -->
-								<!-- Auto save upon exit? -->
-							<li> Export File  </li>
+							<li> <button  class="mainMenuBut" onclick="addTitle(); addChar(); addOrg(); addMag(); addGeo();" ontouchstart="addTitle(); addChar(); addOrg(); addMag(); addGeo();" > Save Everything </button></li>
+                            <li> <button  class="mainMenuBut"onclick="clearAll()" ontouchstart="clearAll()"> Delete Everything </button></li>
 						</ul>
 				</nav>
 				
@@ -36,7 +31,7 @@
                 </div>
 				
 				<div id="authorTools"> 
-					<button type="button" class="writerButton" onclick="authorNav()">
+					<button type="button" class="writerButton" onclick="authorNav()" ontouchstart="authorNav()">
 						<img id="writerRef" src="Editing-Icon.png" alt="edit icon" height="40" width="40"> 
 					</button>
 						<ul class="authorNav" id="mainmenu">
@@ -50,25 +45,31 @@
 			</div>
 
     <!-- Fantasy Page -->
-  
-            <button type="button" id="titleImg" class="arrow_down" onclick="hideMain()">
+            
+            
+            <h3 id="intro"> </h3>
+            <p> A brief tutorial:</p>
+            <p> The upper right menu is for either: saving all of your work, or deleting all of your work from the browser's memory. Don't click delete by accident!</p>
+            <p> The upper right menu will help you hop from one topic to the next. Use it when you have multiple menus open on your screen.</p>
+            
+            <hr> 
+            
+            <button type="button" id="titleImg" class="arrow_down" onclick="hideMain()" ontouchstart="hideMain()">
 				<img src="arrow_down.png"  alt="arrow icon" height="40" width="40"> 
             </button>
                 <h2 id="displayTitle"> Story Summary </h2> 
                 <div id="fantasyTemplate" class="fantasyMain">
                     <h3> Change/Add Story Title <input type="text" value="Add your title here." name="storyTitle" width="200px" id="storyTitle" onfocus="focusBg(this)" onblur="blurBg(this)" > </h3> 
                     
-                    <button type="button" id="titleSub" class="saveButton"  onclick="addTitle()" > Save Title
+                    <button type="button" id="titleSub" class="saveButton"  onclick="addTitle()" ontouchstart="addTitle()"> Save Title
                     </button>
-                    <br>
              <!--  
                     <button type="button" id="titleDis" class="saveButton"  onclick="displayTitle()"> Display Title
                     </button>
               -->
-                    <button type="button" id="titleDel" class="saveButton"  onclick="delTitle()"> Delete Title
+                    <button type="button" id="titleDel" class="delButton"  onclick="delTitle()" ontouchstart="delTitle()" > Delete Title
                     </button>
-                    
-                    <hr>
+  
                   <div id="sum">  
                     <h3 id="sumIntro"> </h3>
                       <h3 id="sumName"> </h3>
@@ -78,7 +79,7 @@
                   </div>      
                    <!-- <div id="testTitle"> </div> -->
             <br>
-                <button type="button" id="charImg" class="arrow_down" onclick="hideChar()">
+                <button type="button" id="charImg" class="arrow_down" onclick="hideChar()" ontouchstart="hideChar()">
 						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
 					</button>
                  <h2> Main Character </h2>
@@ -117,20 +118,15 @@
                         <h4 id="postAdult"> Adulthood </h4>
                             <input type="text" name="charAdult" width="300px" id="charAdult" onfocus="focusBg(this)"  onblur="blurBg(this)">
                 <br>
-                    <button type="button" id="charSub" class="saveButton"  onclick="addChar()"> Save Character
+                <br>
+                    <button type="button" id="charSub" class="saveButton"  onclick="addChar()" ontouchstart="addChar()"> Save Character
                     </button> 
-                     <br>
                 <!--    
                     <button type="button" id="charDis" class="saveButton"  onclick="displayChar()"> Display Character
                     </button> 
                  -->   
-                    <button type="button" id="deleteChar" class="saveButton"  onclick="deleteChar()"> Delete Character
+                    <button type="button" id="deleteChar" class="delButton"  onclick="deleteChar()" ontouchstart="deleteChar()"> Delete Character
                     </button> 
-                   
-                    <div id=charTest1> </div>
-                    <div id=charTest2> </div>
-                    <div id=charTest3> </div>
-                    <div id=charTest4> </div>
                
                     <hr>
             </div>
@@ -158,23 +154,22 @@
                             <input type="text" name="orgFire" width="100px" id="inFire"  onfocus="focusBg(this)" onblur="blurBg(this)"> 
                         <h3 id="orgLead"> Leadership Structure </h3>
                             <input type="text" name="orgLead" width="100px" id="inLead"  onfocus="focusBg(this)" onblur="blurBg(this)">
-                   <br> 
-                        <button type="button" id="orgSub" class="saveButton"  onclick="addOrg()"> Save Organization
+                  <br>
+                <br> 
+                        <button type="button" id="orgSub" class="saveButton"  onclick="addOrg()" ontouchstart="addOrg()"> Save Organization
                     </button> 
-                    
-                    <br>
+
                <!--     
                     <button type="button" id="orgDis" class="saveButton"  onclick="displayOrg()"> Display Organization
                     </button>
                 -->
-                     <br>
-                    <button type="button" id="orgDel" class="saveButton"  onclick="deleteOrg()"> Delete Organization
+                    <button type="button" id="orgDel" class="delButton"  onclick="deleteOrg()" ontouchstart="deleteOrg()"> Delete Organization
                     </button>
                     
                         <div id="orgTest"> </div>
                 </div>
             <br>    
-                <button type="button" class="arrow_down" id="magImg" onclick="hideMag()">
+                <button type="button" class="arrow_down" id="magImg" onclick="hideMag()" ontouchstart="hideMag()">
 						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
 					</button>
                 <h2> Magic</h2> 
@@ -196,23 +191,19 @@
                         
                     <h3 id="postWeak"> Weaknesses </h3>
                         <input type="text" name="magWeak" width="100px" id="inMagWeak" onfocus="focusBg(this)"  onblur="blurBg(this)">
-              <br>      
-                     <button type="button" id="magSub" class="saveButton"  onclick="addMag()"> Save Magic
+              <br>
+            <br>      
+                     <button type="button" id="magSub" class="saveButton"  onclick="addMag()" ontouchstart="addMag()"> Save Magic
                     </button> 
-                    
-                    <br>
                <!--     
                     <button type="button" id="magDis" class="saveButton"  onclick="displayMag()"> Display Magic
                     </button>
               -->      
-                     <br>
-                    <button type="button" id="magDel" class="saveButton"  onclick="deleteMag()"> Delete Magic
+                    <button type="button" id="magDel" class="delButton"  onclick="deleteMag()" ontouchstart="deleteMag()"> Delete Magic
                     </button>
-                    
-                        <div id="magTest"></div>
                 </div>
             <br>    
-                <button type="button" id="geoImg" class="arrow_down" onclick="hideGeo()">
+                <button type="button" id="geoImg" class="arrow_down" onclick="hideGeo()" ontouchstart="hideGeo()" >
 						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
 					</button>
                 <h2>Geography</h2> 
@@ -228,18 +219,17 @@
                             <input type="text" name="inMount" width="100px" id="inMount"  onfocus="focusBg(this)" onblur="blurBg(this)">
                         <h3 id="postDes"> Deserts </h3>
                             <input type="text" name="inDes" width="100px" id="inDes"  onfocus="focusBg(this)" onblur="blurBg(this)">
-              <br>  
-                     <button type="button" id="geoSub" class="saveButton"  onclick="addGeo()"> Save Geography
+            <br>
+            <br>  
+                     <button type="button" id="geoSub" class="saveButton"  onclick="addGeo()" ontouchstart="addGeo()"> Save Geography
                     </button> 
                     
-                    <br>
                   <!--  
                     <button type="button" id="geoDis" class="saveButton"  onclick="displayGeo()"> Display Geography
                     </button> 
                  -->   
-                     <br>
-                    
-                    <button type="button" id="geoDel" class="saveButton"  onclick="deleteGeo()"> Delete Geography
+
+                    <button type="button" id="geoDel" class="delButton"  onclick="deleteGeo()" ontouchstart="deleteGeo()"> Delete Geography
                     </button>
                     
                         <div id="geoTest"> </div>
@@ -248,38 +238,92 @@
             <br>
                 
         </div>
-            
-            <button onclick="clearAll()"> Clear All Local Storage</button>
-            
+            <hr>
+<!-- PERSONAL NOTES -->
             <br>
-            <br>
-            <br>
-           
-            <button onclick="printAll()"> Print All Local Storage</button>
-            
-                <div id="JSONPrint">
+			 <button type="button" id="notesImg" class="arrow_down" onclick="hideNotes()" ontouchstart="hideNotes()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+            <h2> Make Personal Notes </h2> 
+            <div class="notes" id="personalNotes"> 
+                
+					<h2> Write a New Note </h2>
+    
+                    <textarea id="textArea" rows="5" cols="50" width="100%" height="auto" class="textarea"> </textarea>
+                
+                    <button class="saveButton" onclick="addNote()"> Save </button>
+
+<!--
+                <button class="saveButton" onclick="displayNotes()"> Display Test </button>
+              
+                 <div id="test1"></div>
+   --> 
+                
+                    <hr>
+                
+                <button type="button" id="notesBot" class="arrow_down" onclick="hideEntries()" ontouchstart="hideEntries()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>    
+                <h2> List of Notes </h2>
+                        <!-- This would be easier if I implemented a "new note" Icon... -->
+                            <div class="noteList" id="noteList">
                             </div>
+                
+                
+                <button class="saveButton" id="notesDel" onclick="delOldNote()" ontouchstart="delOldNote()"> Delete Oldest Note</button>
+                
+            <!--
+                <button onclick="newNote()"> Start a personal note </button>
+                        <p id="noteStart"> </p>
+            -->
+    
+              </div> 
             
-            <div id="containAll"> </div>
-   
-			<div> 
-			<h1>  </h1> 
-			
-			</div>
-			
             <hr>
             
+            <button type="button" id="animeImg" class="arrow_down" onclick="hideAnime()" ontouchstart="hideAnime()">
+						<img src="arrow_down.png" alt="arrow icon" height="40" width="40"> 
+					</button>
+            <h2> Find Inspiration </h2>
+            <div class="research">
+                
+				<canvas id="myCanvas3" width="300" height="100" style="border:1px solid #d3d3d3;">
+					Your browser does not support the HTML5 canvas tag.</canvas>
+
+						<script>
+						var c = document.getElementById("myCanvas3");
+						var ctx = c.getContext("2d");
+						ctx.font = "24px Times New Roman";
+						ctx.fillText("Let the music speak to you...",10,50);
+						</script>
+				
+				<audio controls>
+				  <source src="If_You_Close_Your_Eyes_I_m_Still_With_You.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+				</audio>
+				
+				<audio controls>
+				  <source src="Nidra_in_the_Sky_with_Ayler.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+				</audio>
+				
+				<audio controls>
+				  <source src="Zombie_March.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+				</audio>
+                
+                <h2>If you're looking for further inspiration, you might like one of these amazing anime feature films.</h2>
+                
+                <button class="saveButton" id="anime" onclick="animeReq()" ontouchstart="animeReq()"> Search Now </button>
+                
+                <h2 id="root"> </h2>
+                
+            </div>
+            <hr>
 			<footer>
                 <nav id="footerMenu">
-				    <ul class="footNav" id="footMenu">
-				        <li> Save Progress </li>
-								<!-- Easier to save specific pages, vs all files at once...-->
-								<!-- Include warnings to potentially loosing unsaved data -->
-								<!-- Auto save upon exit? -->
-				        <li> Rename File </li>
-                        <li> Delete File </li>
-						<li> Export File  </li>
-				    </ul>
+				     <button  class="footMenuBut" onclick="addTitle(); addChar(); addOrg(); addMag(); addGeo();" ontouchstart="addTitle(); addChar(); addOrg(); addMag(); addGeo();" > Save Everything </button>
+                    <button  class="footMenuBut"onclick="clearAll()" ontouchstart="clearAll()"> Delete Everything </button>
 				</nav>
 			</footer>
 	
