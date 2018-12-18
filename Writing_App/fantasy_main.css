@@ -111,6 +111,12 @@ textarea{
         font-size: 1em;
         font-family: sans-serif;
         padding-top: 0.5em;
+
+    }
+
+    .hamNav.responsive li button {
+        background-color:darkgreen;
+        color:chartreuse;
         text-align: left;
 
     }
@@ -208,9 +214,19 @@ textarea{
 
 .saveButton{
     margin-left:1em;
+    width: 200px;
+    height: 2em;
     background-color: darkgreen;
     color:palegreen;
     position: relative;
+    transition: width 2s, height 2s;
+    transition-timing-function: ease-in;
+    
+}
+
+.saveButton:hover {
+    width: 300px;
+    height: 3em;
 }
 
 .slideButton{
@@ -219,11 +235,42 @@ textarea{
     animation-iteration-count: 1;
 }
 
+.delButton{
+    margin-left:1em;
+    width: 200px;
+    height: 2em;
+    background-color: palegreen;
+    color:darkgreen;
+    position: relative;
+    transition: width 2s, height 2s;
+    transition-timing-function: ease-out;
+}
+
+.delButton:hover{
+    width: 300px;
+    height: 3em;
+}
+
+.slideDelButton{
+    animation-name: delScreenSlide;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+    animation-direction: reverse;
+}
+
 @keyframes screenSlide {
 			0%   {left:0px;}
-			25%  {left:100px;}
-			50%  {left:200px;}
-			75%  {left:100px;}
+			25%  {left:60px;}
+			50%  {left:120px;}
+			75%  {left:200px;}
+			100% {left:0px;}
+		}
+
+@keyframes delScreenSlide {
+			0%   {left:0px;}
+			25%  {left:60px;}
+			50%  {left:120px;}
+			75%  {left:200px;}
 			100% {left:0px;}
 		}
 
@@ -353,29 +400,104 @@ textarea{
 }
 
 #titleSub {
-    margin-left: 2em; 
+    margin-left: 1em; 
 }
 
+/* Personal Notes Menu */
+
+.noteTrans {
+    transform: scaleX(1.0);
+    transform: scaleY(1.0);
+    transform: translate(0px, 0px);
+    animation-name: transOpen;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes transOpen {
+			0%   {transform: scaleX(1.0) scaleY(1.0)
+            translate(10px, 10px);
+            }
+			33%  {transform: scaleX(1.25) scaleY(1.25) translate(20px, 20px);}
+			66%  {transform: scaleX(1.5) scaleY(1.5) translate(10px, 10px);}
+			100% {transform: scaleX(1.0)  scaleY(1.0) translate(0px, 0px);}
+}
+
+.notes {
+    display:none;
+}
+
+.notes.responsive {
+    display: block;
+    animation-name: noteOpen;
+    animation-duration: 2s;
+}
+
+.noteList {
+    display:none;
+}
+
+.noteList.responsive {
+    display: block;
+    animation-name: noteOpen;
+    animation-duration: 2s;
+}
+
+@keyframes noteOpen {
+    0%   {background-color: black;}
+    33%  {background-color: darkgreen;}
+    66%  {background-color: darkolivegreen;}
+    100% {background-color: darkseagreen;}
+}
+
+.notes#notesBot {
+    margin-left: 2em;
+}
+
+#notesDel{
+    width: 200px;
+}
+
+#clearAll{
+    width: 200px;
+}
+
+/* Anime CSS */
+
+.research {
+    display:none;
+}
+
+.research.responsive {
+    display: block;
+    animation-name: noteOpen;
+    animation-duration: 2s;
+}
 
 /* footer menu */
 
-    #footerMenu{
-        display:flex;
-        flex-wrap:nowrap;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: flex-start;
-		background-color: darkgray;
-		top: 0;
-		width: 100%;
+footer {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: cornflowerblue;
 }
 
-.footNav {
-    list-style: none; 
-    padding-left: 0;
-
+#footerMenu{
+    display:flex;
+    flex-wrap:nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    top: 0;
+    width: 100%;
 }
 
+.footMenuBut {
+    background-color:darkgreen;
+    color:chartreuse;
+    text-align: left;
+}
 
 
 
