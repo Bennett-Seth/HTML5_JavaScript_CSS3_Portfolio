@@ -7,16 +7,16 @@ function authorNav() {
 	document.getElementsByClassName("authorNav")[0].classList.toggle("responsive");
 }
 
-//onload Display Functions
-function displayTitle(){
+//onload Functions
+function displayTitle() {
     // This function is needed for onload purposes, not the user interface.
     var objTitle;
     
     text = localStorage.getItem("TitleJSON");
         objTitle = JSON.parse(text);
     
-    if (objTitle == "undefined") {
-        document.getElementById("displayTitle").innerHTML = "Start your story below...";  
+    if (objTitle == null) {
+        document.getElementById("displayTitle").innerHTML = "Build Your World";  
         } else {
     //Loading Object:
         text = localStorage.getItem("TitleJSON");
@@ -34,7 +34,7 @@ function displayChar() {
     text = localStorage.getItem("charNameJSON");
         charName = JSON.parse(text);
     
-    if (charName == "undefined") {
+    if (charName == null) {
         document.getElementById("sumName").innerHTML = "";  
         } else {
     
@@ -92,7 +92,7 @@ function displayChar() {
  }
 }
 
-function displayOrg(){
+function displayOrg() {
     // This function is needed for onload purposes, not the user interface.
     
     var org;
@@ -101,7 +101,7 @@ function displayOrg(){
     text = localStorage.getItem("orgJSON");
         org = JSON.parse(text);
     
-    if (org == "undefined") {
+    if (org == null) {
         document.getElementById("sumOrg").innerHTML = "";
     } else {
     
@@ -134,7 +134,7 @@ function displayMag(){
     text = localStorage.getItem("magJSON");
         mag = JSON.parse(text);
     
-    if (mag == "undefined") {
+    if (mag == null) {
         document.getElementById("sumMag").innerHTML = " ";  
     } else {
     
@@ -164,7 +164,7 @@ function displayGeo(){
     text = localStorage.getItem("geoJSON");
        geo = JSON.parse(text);
     
-    if (geo == "undefined") {
+    if (geo == null) {
         document.getElementById("sumGeo").innerHTML = "";
     } else {
     
@@ -183,6 +183,69 @@ function displayGeo(){
     document.getElementById("postDes").innerHTML = "Deserts: " + geo.deserts;   
     
 }
+}
+
+var counter = 0;
+
+function displayNotes(){
+    // This function is needed for onload purposes, not the user interface.
+    
+    var allNotes;
+    
+    //Load Notes
+    text = localStorage.getItem("notesJSON");
+       allNotes = JSON.parse(text);
+    
+    if (allNotes == null) {
+     document.getElementById("noteList").innerHTML = "";
+        } else {
+    
+    // Establish an ID for each note
+    function makeCounter() {
+        counter += 1;
+        return counter;		
+        }
+
+    var idNum = makeCounter();        
+            
+    // Display Note Content
+            
+        // First, wipe the current contents
+            document.getElementById("noteList").innerHTML = "";
+        
+        // Second, print a new list of notes
+        var i;
+            for (i = 0; i < allNotes.length; i++) {
+                var pNode = document.createElement("p");
+                    pNode.setAttribute("class", "listP" );
+                    pNode.setAttribute("id", idNum );
+                var pText = document.createTextNode(allNotes[i]);   
+                    pNode.appendChild(pText);
+                document.getElementById("noteList").appendChild(pNode);
+                }     
+         
+            }
+}
+
+function introUser(){
+    var greeting;
+    var time = new Date().getHours();
+    if (time < 5) {
+        greeting = "You are quite the trooper to be up so early to write. Let's get started!";
+    } else if (time < 6) {
+        greeting = "Rise and Shine, my fellow writer. Let's flesh out your new world.";
+    } else if (time < 9) {
+        greeting = "Time for breakfast, and then we'll write. Can't be creative on an empty stomach!";
+    } else if (time < 12) {
+        greeting = "Time for lunch, and then we'll write. Can't be creative on an empty stomach!";
+    } else if (time < 17) {
+        greeting = "Time for Dinner, and then we'll write. Can't be creative on an empty stomach!";
+    } else if (time < 21) {
+        greeting = "Before you go to sleep, let's write a few more paragraphs.";
+    } else {
+        greeting = "Let's do some world building, but then you really should get some sleep.";
+        }
+    document.getElementById("intro").innerHTML = "Welcome to the world buliding app. " + "<br>" + greeting;
 }
 
 // Hiding Menu Functions
@@ -226,23 +289,37 @@ function hideGeo() {
 function hideNotes() {
 	document.getElementsByClassName("notes")[0].classList.toggle("responsive");
     
-    var element = document.getElementById("perNotes");
+    var element = document.getElementById("notesImg");
+    element.classList.toggle("spin");
+}
+
+function hideEntries() {
+    document.getElementsByClassName("noteList")[0].classList.toggle("responsive");
+			
+    var element = document.getElementById("notesBot");
+    element.classList.toggle("noteTrans");	
+}
+
+function hideAnime(){
+    document.getElementsByClassName("research")[0].classList.toggle("responsive");
+    
+    var element = document.getElementById("animeImg");
     element.classList.toggle("spin");
 }
 
 // Input Functions
 
-function focusBg(x){
+function focusBg(x) {
     x.style.background = "yellow";
 }
 
-function blurBg(x){
+function blurBg(x) {
     x.style.background = "cornflowerblue";
 }
 
 // Fantasy Menu Functions
 
-function addTitle(){
+function addTitle() {
         
     //Create Title Object
         var title = "title";
@@ -261,14 +338,19 @@ function addTitle(){
     // Slide Button
      var element = document.getElementById("titleSub");
     element.classList.toggle("slideButton");
+    document.getElementById("titleSub").style.fontFamily = '"Georgia", serif';
     
  }
 
 function delTitle() {
     localStorage.removeItem("TitleJSON");
+    
+    // Slide Button
+     var element = document.getElementById("titleDel");
+    element.classList.toggle("slideDelButton");
 }
 
-function addChar(){
+function addChar() {
     //Character Variables
     var name = "name"
         var getName = document.getElementById("charName").value;
@@ -346,12 +428,13 @@ function addChar(){
     
     // Display Background
     document.getElementById("postChild").innerHTML = "Childhood: " + background.charChild;
-    document.getElementById("postAdol").innerHTML = "Childhood: " + background.charAdol;
-    document.getElementById("postAdult").innerHTML = "Childhood: " + background.charAdult;
+    document.getElementById("postAdol").innerHTML = "Adolescence: " + background.charAdol;
+    document.getElementById("postAdult").innerHTML = "Adulthood: " + background.charAdult;
         
     // Slide Button
      var element = document.getElementById("charSub");
     element.classList.toggle("slideButton");
+    document.getElementById("charSub").style.fontFamily = '"Georgia", serif';
     
     //Saving Objects:
         JSONcharName = JSON.stringify(charName);
@@ -365,34 +448,21 @@ function addChar(){
     
         JSONbackground = JSON.stringify(background);
         localStorage.setItem("backgroundJSON", JSONbackground);
-
-    //Loading and Test Objects:
-        text = localStorage.getItem("charNameJSON");
-        charName = JSON.parse(text);
-            document.getElementById("charTest1").innerHTML = charName.name;
-    
-        text = localStorage.getItem("appearanceJSON");
-        appearance = JSON.parse(text);
-            document.getElementById("charTest2").innerHTML = appearance.eyeColor;
-
-        text = localStorage.getItem("personalityJSON");
-        personality = JSON.parse(text);
-            document.getElementById("charTest3").innerHTML = personality.charWant;
-
-        text = localStorage.getItem("backgroundJSON");
-        background = JSON.parse(text);
-            document.getElementById("charTest4").innerHTML = background.charChild;
   
 }
 
-function deleteChar(){
+function deleteChar() {
     localStorage.removeItem("charNameJSON");
     localStorage.removeItem("appearanceJSON");
     localStorage.removeItem("personalityJSON");
     localStorage.removeItem("backgroundJSON");
+    
+    // Slide Button
+     var element = document.getElementById("deleteChar");
+    element.classList.toggle("slideDelButton");
 }
 
-function addOrg(){
+function addOrg() {
     // Organization Variables
     var name = "name"
     var getName = document.getElementById("inName").value;
@@ -441,6 +511,7 @@ function addOrg(){
     // Slide Button
      var element = document.getElementById("orgSub");
     element.classList.toggle("slideButton");
+    document.getElementById("orgSub").style.fontFamily = '"Georgia", serif';
     
     //Saving Object:
         JSONorg = JSON.stringify(org);
@@ -452,11 +523,15 @@ function addOrg(){
         document.getElementById("orgTest").innerHTML = org.name;   
 }
 
-function deleteOrg(){
+function deleteOrg() {
     localStorage.removeItem("orgJSON");
+    
+    // Slide Button
+     var element = document.getElementById("orgDel");
+    element.classList.toggle("slideDelButton");
 }
 
-function addMag(){
+function addMag() {
      // Magic Variables
     var name = "name"
     var getName = document.getElementById("inMagName").value;
@@ -482,8 +557,6 @@ function addMag(){
     }
 
     //Display Magic:        
-    document.getElementById("magTest").innerHTML = mag.name;
-    
     document.getElementById("sumMag").innerHTML = "Magic: " + mag.name;
         
     document.getElementById("magName").innerHTML = "Name: " + mag.name;
@@ -501,6 +574,8 @@ function addMag(){
     // Slide Button
      var element = document.getElementById("magSub");
     element.classList.toggle("slideButton");
+     document.getElementById("magSub").style.fontFamily = '"Georgia", serif';
+    
     
     //Saving Magic:
         JSONmag = JSON.stringify(mag);
@@ -513,11 +588,15 @@ function addMag(){
 
 }
 
-function deleteMag(){
+function deleteMag() {
     localStorage.removeItem("magJSON");
+    
+    // Slide Button
+     var element = document.getElementById("magDel");
+    element.classList.toggle("slideDelButton");
 }
 
-function addGeo(){
+function addGeo() {
      // Magic Variables
     var cities = "cities "
     var getCit = document.getElementById("inCit").value;
@@ -571,10 +650,121 @@ function addGeo(){
         document.getElementById("geoTest").innerHTML = geo.cities;  
 }
 
-function deleteGeo(){
+function deleteGeo() {
     localStorage.removeItem("geoJSON");
+    
+    // Slide Button
+     var element = document.getElementById("geoDel");
+    element.classList.toggle("slideDelButton");
+}
+
+function addNote(){
+    // Establish an ID for each note
+    function makeCounter() {
+        counter += 1;
+        return counter;		
+        }
+
+    var idNum = makeCounter();
+    
+    // Store my Variables
+    var myNote = document.getElementById("textArea").value;
+
+    // Print this note
+    var pNode = document.createElement("p");
+        pNode.setAttribute("class", "listP" );
+        pNode.setAttribute("id", idNum );
+    var pText = document.createTextNode(document.getElementById("textArea").value);
+        pNode.appendChild(pText);
+    document.getElementById("noteList").appendChild(pNode);
+    
+    // Create Array of Notes
+    var notesList = [];    
+    var x = document.getElementsByClassName('listP');
+    var i;
+        for (i = 0; i < x.length; i++) {
+           var add = x[i].innerHTML;
+            notesList.push(add);
+        }  
+
+    //Saving Object to Local Storage:
+        JSONnotes = JSON.stringify(notesList);
+        localStorage.setItem("notesJSON", JSONnotes);
+    
+}
+
+function delOldNote(){
+
+    var list = document.getElementById("noteList");
+    list.removeChild(list.childNodes[0]);
+    
+    // Create Array of Notes
+    var notesList = [];    
+    var x = document.getElementsByClassName('listP');
+    var i;
+        for (i = 0; i < x.length; i++) {
+           var add = x[i].innerHTML;
+            notesList.push(add);
+        }  
+
+    //Saving Object to Local Storage:
+        JSONnotes = JSON.stringify(notesList);
+        localStorage.setItem("notesJSON", JSONnotes);
+
+}
+
+// Other Functions
+function animeReq(){
+    const app = document.getElementById('root');
+
+    const logo = document.createElement('img');
+    logo.src = 'https://github.com/taniarascia/sandbox/blob/master/ghibli/logo.png?raw=true';
+
+    const container = document.createElement('div');
+	container.setAttribute('class', 'container');
+
+	app.appendChild(logo);
+	app.appendChild(container);
+
+    var request = new XMLHttpRequest();
+	request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
+    request.onload = function () {
+
+// Begin accessing JSON data here
+    var data = JSON.parse(this.response);
+    if (request.status >= 200 && request.status < 400) {
+	data.forEach(movie => {
+    const card = document.createElement('div');
+    card.setAttribute('class', 'card');
+
+    const h1 = document.createElement('h1');
+    h1.textContent = movie.title;
+
+    const p = document.createElement('p');
+    movie.description = movie.description.substring(0, 300);
+    p.textContent = `${movie.description}...`;
+
+    container.appendChild(card);
+    card.appendChild(h1);
+    card.appendChild(p);
+    });
+    } else {
+	    const errorMessage = document.createElement('marquee');
+        errorMessage.textContent = `Gah, it's not working!`;
+        app.appendChild(errorMessage);
+            }
+		}
+request.send();
 }
 
 function clearAll() {
-    localStorage.clear()
+    localStorage.clear();
+    location.reload();
 }
+    
+    
+    
+    
+    
+
+
