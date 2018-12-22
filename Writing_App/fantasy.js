@@ -16,7 +16,7 @@ function displayTitle() {
         objTitle = JSON.parse(text);
     
     if (objTitle == null) {
-        document.getElementById("displayTitle").innerHTML = "Build Your World";  
+        document.getElementById("displayTitle").innerHTML = "Start here";  
         } else {
     //Loading Object:
         text = localStorage.getItem("TitleJSON");
@@ -231,20 +231,23 @@ function introUser(){
     var greeting;
     var time = new Date().getHours();
     if (time < 5) {
-        greeting = "You are quite the trooper to be up so early to write. Let's get started!";
+        greeting = "Wow, it's way early dude... Sure you don't need some sleep? No? Okay, then let's start writing!";
     } else if (time < 6) {
+        greeting = "You are quite the trooper to be up so early to write. Let's get started!";
+    } else if (time < 8) {
         greeting = "Rise and Shine, my fellow writer. Let's flesh out your new world.";
-    } else if (time < 9) {
-        greeting = "Time for breakfast, and then we'll write. Can't be creative on an empty stomach!";
     } else if (time < 12) {
-        greeting = "Time for lunch, and then we'll write. Can't be creative on an empty stomach!";
+        greeting = "Time for breakfast, and then we'll write. Can't be creative on an empty stomach!";
+        
     } else if (time < 17) {
-        greeting = "Time for Dinner, and then we'll write. Can't be creative on an empty stomach!";
+        greeting = "Time for lunch, and then we'll write. Can't be creative on an empty stomach!";
+        
     } else if (time < 21) {
-        greeting = "Before you go to sleep, let's write a few more paragraphs.";
+        greeting = "Time for Dinner, and then we'll write. Can't be creative on an empty stomach!";
+        
     } else {
-        greeting = "Let's do some world building, but then you really should get some sleep.";
-        }
+        greeting = "Before you go to sleep, let's write a few more paragraphs.";
+    }
     document.getElementById("intro").innerHTML = "Welcome to the world buliding app. " + "<br>" + greeting;
 }
 
