@@ -76,7 +76,8 @@ textarea{
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: flex-start;
-		
+		padding-bottom: 1em;
+        
 		background-color: cornflowerblue;
 		position: fixed;
 		top: 0;
