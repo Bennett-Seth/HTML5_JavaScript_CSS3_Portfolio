@@ -5,7 +5,7 @@
 			<title> Fantasy Writing Application </title>
 			
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-	    
+   
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="fantasy_main.css">
         <script src="fantasy.js"></script>    
@@ -27,7 +27,7 @@
 				</nav>
 				
 				<div class="filler">
-                    <h2> Create Your Own World </h2>
+                    
                 </div>
 				
 				<div id="authorTools"> 
@@ -35,9 +35,9 @@
 						<img id="writerRef" src="Editing-Icon.png" alt="edit icon" height="40" width="40"> 
 					</button>
 						<ul class="authorNav" id="mainmenu">
-							<li><a href="#fantasyTemplate">Title</a></li>
-							<li><a href="#fantasyTemplate">Characters</a>  </li>
-							<li><a href="#characterTemplate">Organizations</a>  </li>
+							<li><a href="#displayTitle">Title</a></li>
+							<li><a href="#characterTemplate">Characters</a>  </li>
+							<li><a href="#org">Organizations</a>  </li>
                             <li><a href="#magSys">Magic</a>  </li>
                             <li><a href="#geography">Geography</a>  </li>
 						</ul>
@@ -46,7 +46,7 @@
 
     <!-- Fantasy Page -->
             
-            
+            <h2> World Builder </h2>
             <h3 id="intro"> </h3>
             <p> A brief tutorial:</p>
             <p> The upper right menu is for either: saving all of your work, or deleting all of your work from the browser's memory. Don't click delete by accident!</p>
@@ -251,7 +251,7 @@
     
                     <textarea id="textArea" rows="5" cols="50" width="100%" height="auto" class="textarea"> </textarea>
                 
-                    <button class="saveButton" onclick="addNote()"> Save </button>
+                    <button class="saveButton" onclick="addNote(); hideEntries();" ontouchstart="addNote(); hideEntries();"> Save This Note </button>
 
 <!--
                 <button class="saveButton" onclick="displayNotes()"> Display Test </button>
@@ -287,14 +287,16 @@
             <h2> Find Inspiration </h2>
             <div class="research">
                 
-				<canvas id="myCanvas3" width="300" height="100" style="border:1px solid #d3d3d3;">
+				<p> Sometimes a little random diversion is all a writer needs in order to shake loose a few pearls of wisdom. For example...</p>
+                
+                <canvas id="myCanvas3" width="300" height="100" style="border:1px solid #d3d3d3;">
 					Your browser does not support the HTML5 canvas tag.</canvas>
 
 						<script>
 						var c = document.getElementById("myCanvas3");
 						var ctx = c.getContext("2d");
 						ctx.font = "24px Times New Roman";
-						ctx.fillText("Let the music speak to you...",10,50);
+						ctx.fillText("Let the music speak to you.",10,50);
 						</script>
 				
 				<audio controls>
@@ -317,7 +319,7 @@
                 <button class="saveButton" id="anime" onclick="animeReq()" ontouchstart="animeReq()"> Search Now </button>
                 
                 <h2 id="root"> </h2>
-                
+                    
             </div>
             <hr>
 			<footer>
